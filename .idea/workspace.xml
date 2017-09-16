@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="440037d0-0161-494c-b754-7be8fd4ad7fb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tp1.py" afterPath="$PROJECT_DIR$/Tp1.py" />
     </list>
     <ignored path="C:\Users\charl\PycharmProjects\TP1\TP1\.idea\shelf/" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="Tp1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tp1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+            <state relative-caret-position="442">
+              <caret line="133" column="17" lean-forward="false" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
               <folding>
                 <element signature="e#188#871#0" expanded="false" />
                 <element signature="e#1060#1442#0" expanded="false" />
@@ -281,8 +280,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tp1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="133" column="17" lean-forward="false" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+          <folding>
+            <element signature="e#188#871#0" expanded="false" />
+            <element signature="e#1060#1442#0" expanded="false" />
+            <element signature="e#1667#2962#0" expanded="false" />
+            <element signature="e#3209#3856#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tp1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#188#871#0" expanded="false" />
+            <element signature="e#1060#1442#0" expanded="false" />
+            <element signature="e#1667#2962#0" expanded="false" />
+            <element signature="e#3209#3856#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tp1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#188#871#0" expanded="false" />
+            <element signature="e#1060#1442#0" expanded="false" />
+            <element signature="e#1667#2962#0" expanded="false" />
+            <element signature="e#3209#3856#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.py" />
+    <entry file="file://$PROJECT_DIR$/menu.py" />
+    <entry file="file://$USER_HOME$/Desktop/funciones.py" />
+    <entry file="file://$USER_HOME$/Desktop/Tp.py" />
+    <entry file="file://$PROJECT_DIR$/Tp1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="133" column="17" lean-forward="false" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
           <folding>
             <element signature="e#188#871#0" expanded="false" />
             <element signature="e#1060#1442#0" expanded="false" />
