@@ -1,0 +1,44 @@
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision )
++++ .idea/vcs.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: Tp1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def multiplicacion(a, b):\r\n    suma = 0\r\n    if a < 0 and b < 0 or a > 0 and b > 0:\r\n        if a < 0 and b < 0:\r\n            a = -a\r\n            b = -b\r\n        if a <= b:\r\n            for i in range(0, a):\r\n                suma += b\r\n        elif a > b:\r\n            for i in range(0, b):\r\n                suma += a\r\n    elif a < 0:\r\n\r\n        if abs(a) < b:\r\n            for i in range(a , 0):\r\n                suma += b\r\n            suma = -suma\r\n        else:\r\n            for i in range(0, b):\r\n                suma += a\r\n    else:\r\n        if abs(b) < a:\r\n            for i in range(b , 0):\r\n                suma += a\r\n            suma = -suma\r\n        else:\r\n            for i in range(0, a):\r\n                suma += b\r\n    return suma\r\n\r\ndef potencia(a, b):\r\n    multp = 1\r\n    if a != 0 and b != 0:\r\n        if a > 0 and b > 0:\r\n            for i in range(0, b):\r\n                multp = multp * a\r\n        elif b < 0:\r\n            for i in range(b, 0):\r\n                multp = multp * a\r\n            multp = 1 / multp\r\n        elif a < 0:\r\n            for i in range(0, b):\r\n                multp = multp * a\r\n    else:\r\n        multp = 0\r\n    return multp\r\n\r\ndef division(a, b):\r\n    div = 0\r\n    cont = 0\r\n    contadorDeDecimales = 0\r\n    if a < 0 and b < 0 or a > 0 and b > 0:\r\n            a = abs(a)\r\n            b = abs(b)\r\n            if a < b:\r\n                if b % a == 0:\r\n                    while b >= a:\r\n                        b += -a\r\n                        cont += 1\r\n                    div = b\r\n                    cont = 1/cont\r\n                else:\r\n                    while a < b:\r\n                        a = a * 10\r\n                        contadorDeDecimales += 1\r\n                    while a >= b:\r\n                        a += -b\r\n                        cont += +1\r\n                    div = a\r\n                    cont = cont / (10 ** contadorDeDecimales)\r\n            else:\r\n                while a >= b:\r\n                    a -= b\r\n                    cont += 1\r\n                div = a\r\n    elif a < 0 or b < 0:\r\n        a = abs(a)\r\n        b = abs(b)\r\n        if a < b and b % a == 0:\r\n            while b >= a:\r\n                b -= a\r\n                cont += 1\r\n            div = b\r\n            cont = 1/-cont\r\n        else:\r\n            while a < b:\r\n                a = a * 10\r\n                contadorDeDecimales += 1\r\n            while a >= b:\r\n                a += -b\r\n                cont += +1\r\n            div = a\r\n            cont = -cont / (10 ** contadorDeDecimales)\r\n    return div, cont\r\n\r\ndef palabraMasLarga_cantidadDeLetras(c):\r\n    palabraMasLarga = \"\"\r\n    palabra = \"\"\r\n    listalarga = []\r\n    j = c.maketrans(\",;.\", \"   \")\r\n    c = c.translate(j).lower().split()\r\n    palabraMasLarga = c[0]\r\n    listalarga.append(palabraMasLarga)\r\n    for palabra in c:\r\n        if len(palabraMasLarga) < len(palabra):\r\n            palabraMasLarga = palabra\r\n            listalarga[0] = palabraMasLarga\r\n        elif len(palabraMasLarga)==len(palabra) and palabraMasLarga!=palabra:\r\n            listalarga.append(palabra)\r\n    return listalarga\r\n\r\n\r\n\r\n\r\n\r\n\r\na = int(input(\"Ingrese un valor \"))\r\nb = int(input(\"Ingrese un valor \"))\r\nc = input(\"Ingrese un numero \")\r\n\r\nprint( palabraMasLarga_cantidadDeLetras(c))\r\nprint(\"hola mundo\")
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Tp1.py	(revision 315d185de266de9fa9bf00d24ccf60915b97bf0f)
++++ Tp1.py	(revision )
+@@ -95,8 +95,7 @@
+     return div, cont
+ 
+ def palabraMasLarga_cantidadDeLetras(c):
+-    palabraMasLarga = ""
+-    palabra = ""
++    #palabra = ""
+     listalarga = []
+     j = c.maketrans(",;.", "   ")
+     c = c.translate(j).lower().split()
+@@ -118,6 +117,4 @@
+ a = int(input("Ingrese un valor "))
+ b = int(input("Ingrese un valor "))
+ c = input("Ingrese un numero ")
+-
+-print( palabraMasLarga_cantidadDeLetras(c))
+-print("hola mundo")
+\ No newline at end of file
++print(palabraMasLarga_cantidadDeLetras(c))
+\ No newline at end of file
