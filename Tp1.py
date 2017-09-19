@@ -114,8 +114,8 @@ de la cantidad de letras de la o las palabras.'''
 def palabraMasLargaCantidadDeLetras(frase):
     cantidadDeLetras = 0
     listaLarga = []
-    j = frase.maketrans(",;.", "   ")
-    listaDePalabras = frase.translate(j).lower().split()
+    reemplazar = frase.maketrans(",;.", "   ")
+    listaDePalabras = frase.translate(reemplazar).lower().split()
     palabraMasLarga = listaDePalabras[0]
     listaLarga.append(palabraMasLarga)
     for palabra in listaDePalabras:
