@@ -1,125 +1,124 @@
-# Se ingresan dos valores enteros como valor "a" y valor "b".
+# Se ingresan dos valores enteros "valorA" y "valorB".
 # La variable "suma" devuelve un entero como resultado de la multiplicacion por suma sucesiva.
 
-def multiplicacion(a, b):
+def multiplicacion(valorA, valorB):
     suma = 0
-    if a < 0 and b < 0 or a > 0 and b > 0:
-        if a < 0 and b < 0:
-            a = -a
-            b = -b
-        if a <= b:
-            for i in range(0, a):
-                suma += b
-        elif a > b:
-            for i in range(0, b):
-                suma += a
-    elif a < 0:
-
-        if abs(a) < b:
-            for i in range(a, 0):
-                suma += b
+    if valorA < 0 and valorB < 0 or valorA > 0 and valorB > 0:
+        if valorA < 0 and valorB < 0:
+            valorA = -valorA
+            valorB = -valorB
+        if valorA <= valorB:
+            for i in range(0, valorA):
+                suma += valorB
+        elif valorA > valorB:
+            for i in range(0, valorB):
+                suma += valorA
+    elif valorA < 0:
+        if abs(valorA) < valorB:
+            for i in range(valorA, 0):
+                suma += valorB
             suma = -suma
         else:
-            for i in range(0, b):
-                suma += a
+            for i in range(0, valorB):
+                suma += valorA
     else:
-        if abs(b) < a:
-            for i in range(b, 0):
-                suma += a
+        if abs(valorB) < valorA:
+            for i in range(valorB, 0):
+                suma += valorA
             suma = -suma
         else:
-            for i in range(0, a):
-                suma += b
+            for i in range(0, valorA):
+                suma += valorB
     return suma
 
 
-# Se ingresan dos valores enteros como valor "a" y valor "b".
+# Se ingresan dos valores enteros "valorA" y "valorB".
 # La variable "multp" devuelve un entero o float como resultado de la potencia por multiplicacion.
 
-def potencia(a, b):
+def potencia(valorA, valorB):
     multp = 1
-    if a != 0 and b != 0:
-        if a > 0 and b > 0:
-            for i in range(0, b):
-                multp = multp * a
-        elif b < 0:
-            for i in range(b, 0):
-                multp = multp * a
+    if valorA != 0 and valorB != 0:
+        if valorA > 0 and valorB > 0:
+            for i in range(0, valorB):
+                multp = multp * valorA
+        elif valorB < 0:
+            for i in range(valorB, 0):
+                multp = multp * valorA
             multp = 1 / multp
-        elif a < 0:
-            for i in range(0, b):
-                multp = multp * a
+        elif valorA < 0:
+            for i in range(0, valorB):
+                multp = multp * valorA
     else:
         multp = 0
     return multp
 
 
-# Se ingresan dos valores enteros como valor "a" y valor "b".
+# Se ingresan dos valores enteros "valorA" y "valorB".
 '''La variable "resto" devuelve un entero y "cociente" devuelve un entero o float como resultado de la division por
 resta sucesiva.'''
 
-def division(a, b):
+def division(valorA, valorB):
     resto = 0
     cociente = 0
     contadorDeDecimales = 0
-    if a < 0 and b < 0 or a > 0 and b > 0:
-        a = abs(a)
-        b = abs(b)
-        if a < b:
-            if b % a == 0:
-                while b >= a:
-                    b += -a
+    if valorA < 0 and valorB < 0 or valorA > 0 and valorB > 0:
+        valorA = abs(valorA)
+        valorB = abs(valorB)
+        if valorA < valorB:
+            if valorB % valorA == 0:
+                while valorB >= valorA:
+                    valorB += -valorA
                     cociente += 1
-                resto = b
+                resto = valorB
                 cociente = 1 / cociente
             else:
-                while a < b:
-                    a = a * 10
+                while valorA < valorB:
+                    valorA = valorA * 10
                     contadorDeDecimales += 1
-                while a >= b:
-                    a += -b
-                    cociente += +1
-                resto = a
+                while valorA >= valorB:
+                    valorA -= valorB
+                    cociente += 1
+                resto = valorA
                 cociente = cociente / (10 ** contadorDeDecimales)
         else:
-            while a >= b:
-                a -= b
+            while valorA >= valorB:
+                valorA -= valorB
                 cociente += 1
-            resto = a
-    elif a < 0 or b < 0:
-        a = abs(a)
-        b = abs(b)
-        if a < b and b % a == 0:
-            while b >= a:
-                b -= a
+            resto = valorA
+    elif valorA < 0 or valorB < 0:
+        valorA = abs(valorA)
+        valorB = abs(valorB)
+        if valorA < valorB and valorB % valorA == 0:
+            while valorB >= valorA:
+                valorB -= valorA
                 cociente += 1
-            resto = b
+            resto = valorB
             cociente = 1 / -cociente
         else:
-            while a < b:
-                a = a * 10
+            while valorA < valorB:
+                valorA = valorA * 10
                 contadorDeDecimales += 1
-            while a >= b:
-                a += -b
-                cociente += +1
-            resto = a
+            while valorA >= valorB:
+                valorA -= valorB
+                cociente += 1
+            resto = valorA
             cociente = -cociente / (10 ** contadorDeDecimales)
     return resto, cociente
 
 
-# Se ingresan una String "c".
+# Se ingresan un String "frase".
 '''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
-de la cantidad de letras de la o las palabras'''
+de la cantidad de letras de la o las palabras.'''
 
 
-def palabraMasLargaCantidadDeLetras(c):
+def palabraMasLargaCantidadDeLetras(frase):
     cantidadDeLetras = 0
     listaLarga = []
-    j = c.maketrans(",;.", "   ")
-    c = c.translate(j).lower().split()
-    palabraMasLarga = c[0]
+    j = frase.maketrans(",;.", "   ")
+    listaDePalabras = frase.translate(j).lower().split()
+    palabraMasLarga = listaDePalabras[0]
     listaLarga.append(palabraMasLarga)
-    for palabra in c:
+    for palabra in listaDePalabras:
         if len(palabraMasLarga) == len(palabra) and palabraMasLarga != palabra:
             listaLarga.append(palabra)
         elif len(palabraMasLarga) < len(palabra):
@@ -130,5 +129,3 @@ def palabraMasLargaCantidadDeLetras(c):
         if cantidadDeLetras < len(cantidad):
             cantidadDeLetras = len(cantidad)
     return listaLarga, cantidadDeLetras
-
-print("hola mundo")
