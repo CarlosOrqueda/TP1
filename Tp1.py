@@ -58,52 +58,44 @@ def potencia(valorA, valorB):
 resta sucesiva.'''
 
 def division(valorA, valorB):
-    resto = 0
     cociente = 0
     contadorDeDecimales = 0
-    if valorA < 0 and valorB < 0 or valorA > 0 and valorB > 0:
-        valorA = abs(valorA)
-        valorB = abs(valorB)
-        if valorA < valorB:
-            if valorB % valorA == 0:
-                while valorB >= valorA:
-                    valorB += -valorA
-                    cociente += 1
-                resto = valorB
-                cociente = 1 / cociente
-            else:
-                while valorA < valorB:
-                    valorA = valorA * 10
-                    contadorDeDecimales += 1
-                while valorA >= valorB:
-                    valorA -= valorB
-                    cociente += 1
-                resto = valorA
-                cociente = cociente / (10 ** contadorDeDecimales)
-        else:
+    porMenosUno = False
+    mensaje = ""
+    if valorA < 0 or valorB < 0:
+        porMenosUno = True
+    valorA = abs(valorA)
+    valorB = abs(valorB)
+    if valorB != 0:
+        if valorA == 0:
             while valorA >= valorB:
                 valorA -= valorB
                 cociente += 1
             resto = valorA
-    elif valorA < 0 or valorB < 0:
-        valorA = abs(valorA)
-        valorB = abs(valorB)
-        if valorA < valorB and valorB % valorA == 0:
+        elif valorA <= valorB and valorB % valorA == 0:
             while valorB >= valorA:
-                valorB -= valorA
+                valorB += -valorA
                 cociente += 1
             resto = valorB
-            cociente = 1 / -cociente
+            if porMenosUno == True:
+                cociente = -cociente
+            cociente = 1 / cociente
         else:
-            while valorA < valorB:
+            while valorA <= valorB:
                 valorA = valorA * 10
                 contadorDeDecimales += 1
             while valorA >= valorB:
                 valorA -= valorB
                 cociente += 1
             resto = valorA
-            cociente = -cociente / (10 ** contadorDeDecimales)
-    return resto, cociente
+            if porMenosUno == True:
+                cociente = -cociente
+            cociente = cociente / (10 ** contadorDeDecimales)
+    else:
+        mensaje = "No se puede dividir por 0"
+        resto = ""
+        cociente = ""
+    return resto, cociente, mensaje
 
 
 # Se ingresan un String "frase".
