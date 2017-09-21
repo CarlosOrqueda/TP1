@@ -21,7 +21,10 @@ def palabraMasLargaCantidadDeLetras():
     for cantidad in listaLarga:
         if cantidadDeLetras < len(cantidad):
             cantidadDeLetras = len(cantidad)
+    print ("Las palabras largas son: ",listaLarga)
+    print ("Tienen ",cantidadDeLetras,"caracteres")
     return listaLarga, cantidadDeLetras
+palabraMasLargaCantidadDeLetras()
 
 
 
@@ -199,8 +202,34 @@ def multiplicacion(valor1, valor2):
     print("La multiplicacion es", suma)
 
     return suma
-''' 
+'''
+#se usa esta
+def potencias(valor1, valor2):
+
+    valorA=int(valor1)
+    valorB=int(valor2)
+    multp = 1
+    if valorA != 0 and valorB != 0:
+        if valorA > 0 and valorB > 0:
+            for i in range(0, valorB):
+                multp = multp * valorA
+        elif valorB < 0:
+            for i in range(valorB, 0):
+                multp = multp * valorA
+            multp = 1 / multp
+        elif valorA < 0:
+            for i in range(0, valorB):
+                multp = multp * valorA
+    else:
+        multp = 0
+    print("La potencia es", multp)   
+    return multp
+#potencias(4,2)
+
+
 #No revise mucho
+#La dejo de usar
+'''
 def potencias(valor1,valor2 ):
     c=int(valor1)
     d=int(valor2)
@@ -218,6 +247,7 @@ def potencias(valor1,valor2 ):
         potencia = 1 / multi
     print("La potencia es", potencia)
     return potencia
+'''
 #No revise si devuelve siempre
 '''
 def division(valor1, valor2):
