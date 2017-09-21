@@ -3,7 +3,7 @@
 
 def palabraMasLargaCantidadDeLetras():
 
-    frase=cadena=input("Ingrese una cadena de texto: ")
+    frase=input("Ingrese una cadena de texto: ")
 
     cantidadDeLetras = 0
     listaLarga = []
