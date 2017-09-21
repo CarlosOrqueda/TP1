@@ -26,7 +26,7 @@ def string_corto():
     cadena=input("Ingrese una cadena de texto: ")
     outside="  "
     inside=".,;"
-    trans=cadena.maketrans(".,;","   ")
+    trans=cadena.maketrans(".,;!","    ")
     cadena=cadena.translate(trans)
     lista_cadena=cadena.split()
     palabra_corta= lista_cadena[0]
@@ -45,6 +45,87 @@ def string_corto():
     print ("Las palabras cortas son: ",lista_auxiliar)
     palabras_cortas=lista_auxiliar
     return palabras_cortas
+
+
+##Se usa esta
+def division(valor1, valor2):
+    valorA=int(valor1)
+    valorB=int(valor2)
+
+    
+    cociente = 0
+    contadorDeDecimales = 0
+    porMenosUno = False
+    mensaje = ""
+    if valorA < 0 or valorB < 0:
+        porMenosUno = True
+    valorA = abs(valorA)
+    valorB = abs(valorB)
+    if valorB != 0:
+        if valorA == 0:
+            while valorA >= valorB:
+                valorA -= valorB
+                cociente += 1
+            resto = valorA
+        elif valorA <= valorB and valorB % valorA == 0:
+            while valorB >= valorA:
+                valorB += -valorA
+                cociente += 1
+            resto = valorB
+            if porMenosUno == True:
+                cociente = -cociente
+            cociente = 1 / cociente
+        else:
+            while valorA <= valorB:
+                valorA = valorA * 10
+                contadorDeDecimales += 1
+            while valorA >= valorB:
+                valorA -= valorB
+                cociente += 1
+            resto = valorA
+            if porMenosUno == True:
+                cociente = -cociente
+            cociente = cociente / (10 ** contadorDeDecimales)
+    else:
+        mensaje = "No se puede dividir por 0"
+        resto = ""
+        cociente = ""
+    return cociente, resto #, mensaje
+
+def multiplicacion(valor1, valor2):
+
+    valorA=valor1
+    valorB=valor2
+    suma = 0
+    if valorA < 0 and valorB < 0 or valorA > 0 and valorB > 0:
+        if valorA < 0 and valorB < 0:
+            valorA = -valorA
+            valorB = -valorB
+        if valorA <= valorB:
+            for i in range(0, valorA):
+                suma += valorB
+        elif valorA > valorB:
+            for i in range(0, valorB):
+                suma += valorA
+    elif valorA < 0:
+        if abs(valorA) < valorB:
+            for i in range(valorA, 0):
+                suma += valorB
+            suma = -suma
+        else:
+            for i in range(0, valorB):
+                suma += valorA
+    else:
+        if abs(valorB) < valorA:
+            for i in range(valorB, 0):
+                suma += valorA
+            suma = -suma
+        else:
+            for i in range(0, valorA):
+                suma += valorB
+    print("La multiplicacion es", suma)
+    return suma
+###################
 
 #string_corto()
 #La acabo de ver, parece andar bien
@@ -84,7 +165,7 @@ def contar_cadena():
     return cantidad_palabras
 #contar_cadena()
 
-
+'''
 #Ni la mire, pero parce ok.
 def multiplicacion(valor1, valor2):
     a=int(valor1)
@@ -104,6 +185,7 @@ def multiplicacion(valor1, valor2):
     print("La multiplicacion es", suma)
 
     return suma
+''' 
 #No revise mucho
 def potencias(valor1,valor2 ):
     c=int(valor1)
@@ -123,6 +205,7 @@ def potencias(valor1,valor2 ):
     print("La potencia es", potencia)
     return potencia
 #No revise si devuelve siempre
+'''
 def division(valor1, valor2):
     dividendo=int(valor1)
     sor=int(valor2)
@@ -154,6 +237,7 @@ def division(valor1, valor2):
     print("La división es:", div)
     print("El resto es:", resto)
     return div, resto
+'''
 ######################
 #La deje de usar
 '''
