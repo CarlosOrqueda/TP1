@@ -24,7 +24,7 @@ def palabraMasLargaCantidadDeLetras():
     print ("Las palabras largas son: ",listaLarga)
     print ("Tienen ",cantidadDeLetras,"caracteres")
     return listaLarga, cantidadDeLetras
-palabraMasLargaCantidadDeLetras()
+
 
 
 
