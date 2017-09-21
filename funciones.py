@@ -1,25 +1,31 @@
-#La deje de usar.
-'''
 
-def string_corto(valor1):
-    cadena=valor1
+#se usa esta
 
-    cadena=cadena.strip.replace(".","").replace(","," ").replace(";"," ")
+def palabraMasLargaCantidadDeLetras():
 
-    cadena=cadena.split()
-    palabra_corta = cadena[0]
+    frase=cadena=input("Ingrese una cadena de texto: ")
 
-    for i in cadena:
-        if len(palabra_corta) >= len(i):
-            palabra_corta = i
-        else:
-            palabra_corta = palabra_corta
-    long_palabra = len(palabra_corta)
+    cantidadDeLetras = 0
+    listaLarga = []
+    reemplazar = frase.maketrans(",;.", "   ")
+    listaDePalabras = frase.translate(reemplazar).lower().split()
+    palabraMasLarga = listaDePalabras[0]
+    listaLarga.append(palabraMasLarga)
+    for palabra in listaDePalabras:
+        if len(palabraMasLarga) == len(palabra) and palabraMasLarga != palabra:
+            listaLarga.append(palabra)
+        elif len(palabraMasLarga) < len(palabra):
+            palabraMasLarga = palabra
+            del listaLarga[:]
+            listaLarga.append(palabraMasLarga)
+    for cantidad in listaLarga:
+        if cantidadDeLetras < len(cantidad):
+            cantidadDeLetras = len(cantidad)
+    return listaLarga, cantidadDeLetras
 
-    print("La palabra mas corta tiene: ", len(palabra_corta), "carácteres")
-    print("La palabra mas corta es: ", palabra_corta)
-    return palabra_corta, long_palabra
-'''
+
+
+
 #La acabo de ver, parece andar bien
 def string_corto():
     
@@ -90,12 +96,16 @@ def division(valor1, valor2):
         mensaje = "No se puede dividir por 0"
         resto = ""
         cociente = ""
-    return cociente, resto #, mensaje
+        return mensaje
+   
+    print("La division es: ", cociente)
+    print("El resto es: ", resto)
+    return cociente, resto 
 
 def multiplicacion(valor1, valor2):
 
-    valorA=valor1
-    valorB=valor2
+    valorA=int(valor1)
+    valorB=int(valor2)
     suma = 0
     if valorA < 0 and valorB < 0 or valorA > 0 and valorB > 0:
         if valorA < 0 and valorB < 0:
@@ -125,6 +135,8 @@ def multiplicacion(valor1, valor2):
                 suma += valorB
     print("La multiplicacion es", suma)
     return suma
+
+#multiplicacion(4,3)
 ###################
 
 #string_corto()
@@ -152,7 +164,9 @@ def string_largo():
     
     print ("Las palabras largas son: ",lista_auxiliar)
     palabras_largas=lista_auxiliar
-    return palabras_largas  
+    return palabras_largas
+
+
 #La acabo hacer y ver, parece andar bien
 def contar_cadena():
     cadena=input("Ingrese una cadena de texto: ")
@@ -215,16 +229,16 @@ def division(valor1, valor2):
             resto = dividendo
 
             while (abs(resto) >= abs(sor)):
-                resto += - sor
-                div += + 1
+                resto = resto - sor
+                div =div + 1
 
         else:
             if ((dividendo > 0 and sor < 0) or (dividendo < 0 and sor > 0)):
                 resto = abs(dividendo)
                 sor = abs(sor)
                 while (resto >= sor):
-                    resto += - sor
-                    div += + 1
+                    resto =resto - sor
+                    div = div + 1
                 div = -div
                 resto = -resto
 
