@@ -12,7 +12,9 @@ def opciones_submenu():
             print("Ingrese una opcion valida, solo un numero")
     return opcion
 
-#se usa esta
+# Se ingresan un String "frase".
+'''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
+de la cantidad de letras de la o las palabras.'''
 
 def palabraMasLargaCantidadDeLetras():
 
@@ -39,10 +41,6 @@ def palabraMasLargaCantidadDeLetras():
     palabras_largas_mensaje= mensaje + str(listaLarga)
     
     return  palabras_largas_mensaje #,listaLarga, cantidadDeLetras
-
-
-
-
 
 #Devuelve un unico string para imprimir.
 def string_corto():
@@ -93,11 +91,11 @@ def contar_cadena():
 
 
 #Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mensaje.
+
 def division(valor1, valor2):
     valorA=int(valor1)
     valorB=int(valor2)
 
-    
     cociente = 0
     contadorDeDecimales = 0
     porMenosUno = False
@@ -139,7 +137,10 @@ def division(valor1, valor2):
    
     print("La division es: ", cociente)
     print("El resto es: ", resto)
-    return cociente, resto 
+    return cociente, resto
+
+# Se ingresan dos valores enteros "valorA" y "valorB".
+# La variable "suma" devuelve un entero como resultado de la multiplicacion por suma sucesiva.
 
 def multiplicacion(valor1, valor2):
 
@@ -175,41 +176,6 @@ def multiplicacion(valor1, valor2):
     print("La multiplicacion es", suma)
     return suma
 
-
-###################
-
-
-#La acabo de ver, parece andar bien
-#No se usa
-def string_largo():
-    
-    cadena=input("Ingrese una cadena de texto: ")
-    outside="  "
-    inside=".,;"
-    trans=cadena.maketrans(".,;","   ")
-    cadena=cadena.translate(trans)
-    lista_cadena=cadena.split()
-    palabra_larga= lista_cadena[0]
-    lista_auxiliar=[]
-    #lista_auxiliar.append(palabra_corta)
-    for i in lista_cadena:
-       if len(palabra_larga)<len(i):
-          del lista_auxiliar[::]
-          palabra_larga=i
-          lista_auxiliar.append(palabra_larga)
-       elif len (palabra_larga)==len(i):
-          #lista_auxiliar.append(palabra_corta)
-          lista_auxiliar.append(i)
-          palabra_larga=i
-    
-    print ("Las palabras largas son: ",lista_auxiliar)
-    palabras_largas=lista_auxiliar
-    return palabras_largas
-
-
-
-
-#se usa esta
 #Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mesaje unicamente
 #Y que imprima eso en la funcion generica imprimir.
 
@@ -233,34 +199,11 @@ def potencias(valor1, valor2):
         multp = 0
     print("La potencia es", multp)   
     return multp
-#potencias(4,2)
-
-
-#No revise mucho
-#La dejo de usar
-'''
-def potencias(valor1,valor2 ):
-    c=int(valor1)
-    d=int(valor2)
-    multi = 1
-    e = 0
-    potencia = 0
-    if (d >= 0):
-        for i in range(0, d):
-            multi = multi * c
-        potencia = multi
-
-    elif (d < 0):
-        for i in range(d, 0):
-            multi = multi * c
-        potencia = 1 / multi
-    print("La potencia es", potencia)
-    return potencia
-'''
 
     
 #Solo con enteros, para cadenas habria que mod o hacer otra
 #return un valor generico vacio y otro con cadena. No probe pero con un if se podria solucionar.
+
 def solicitud():
     valor_1=0
     valor_2=0
@@ -273,6 +216,7 @@ def solicitud():
     return valor_1,valor_2
 
 #Funcion imprimir generica
+
 def imprimir(parametro_1="", parametro_2=""):
 
     print(parametro_1, parametro_2)
