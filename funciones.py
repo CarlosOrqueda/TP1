@@ -44,7 +44,7 @@ def palabraMasLargaCantidadDeLetras():
 
 
 
-#La acabo de ver, parece andar bien
+#Devuelve un unico string para imprimir.
 def string_corto():
     
     cadena=input("Ingrese una cadena de texto: ")
@@ -92,7 +92,7 @@ def contar_cadena():
     return cantidad_mensaje #cantidad_palabras
 
 
-##Se usa esta
+#Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mensaje.
 def division(valor1, valor2):
     valorA=int(valor1)
     valorB=int(valor2)
@@ -180,6 +180,7 @@ def multiplicacion(valor1, valor2):
 
 
 #La acabo de ver, parece andar bien
+#No se usa
 def string_largo():
     
     cadena=input("Ingrese una cadena de texto: ")
@@ -209,6 +210,9 @@ def string_largo():
 
 
 #se usa esta
+#Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mesaje unicamente
+#Y que imprima eso en la funcion generica imprimir.
+
 def potencias(valor1, valor2):
 
     valorA=int(valor1)
@@ -254,8 +258,6 @@ def potencias(valor1,valor2 ):
     return potencia
 '''
 
-
-
     
 #Solo con enteros, para cadenas habria que mod o hacer otra
 #return un valor generico vacio y otro con cadena. No probe pero con un if se podria solucionar.
@@ -270,6 +272,7 @@ def solicitud():
             print("Ingrese un valor valido, solo un numero")
     return valor_1,valor_2
 
+#Funcion imprimir generica
 def imprimir(parametro_1="", parametro_2=""):
 
     print(parametro_1, parametro_2)

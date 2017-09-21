@@ -2,9 +2,10 @@
 
 import funciones
 import os
-#Las funciones de menu solo devuelven enteros, hay que revisar que lo que ingrese el usuario sea casteable.
+#Las funciones de menu solo devuelven enteros
 #Habria que moverlas las funciones menu de aca a la otra hoja y hacer los llamados.
 #Agregar una funcion que pida cadenas string generica, y verificar la impresion de funciones int
+#Controlo excepcion cast de todas, habria que moverlas a la hoja funcioines.
 def menu():
     opcion=0
     os.system('cls')
@@ -54,8 +55,8 @@ def sub_menu_let():
 
 #Siempre comienza, igual el if inicial esta medio al dope pero abria que tabular todo y revisar.
 #Probar excepciones de funciones.
-#Resumiendo: Los menú funcionan(Basicamente) y los llamados tmb, funciones como string largo u corto, multiplicacion y potencia estan maso testeadas.
- 
+
+#Declaro variable de inicio 
 salir=1
 if salir==1:
     os.system('cls')
@@ -74,29 +75,34 @@ if salir==1:
                 #Devuelve opcion del menu num
 
                 if opcion == 1:
-                    
+                    #Piso la anterior variable
                     continuar=1
                     #Opcion multiplicacion
                     #Ciclo que se podria modular en todas las opciones.
                     while continuar==1:
-
+                        
+                        #Pido valores genericos con msj genericos
                         valor1, valor2=funciones.solicitud()
                         parametro_1=funciones.multiplicacion(valor1, valor2)
                         funciones.imprimir(parametro_1)
-                        #Sub menu ciclo
-                        continuar=funciones.opciones_submenu()                        #Hay que revisar que lo que ingrese el usuario sea casteable.
+                        #Sub menu ciclo-controlo que sea casteable,se controla en la hoja funcion.
+                        continuar=funciones.opciones_submenu()
+                       
                         #O que lo vuelva a ingresar con aviso
            
 
                 elif opcion == 2:
                     #Declaro la misma variable
+                    #Piso la anterior variable
                     continuar=1
-                    #Opcion divisions
+                    #Opcion division
                     #Ciclo que se podria modular
                     while continuar==1:
+                        #Pido valores genericos con msj genericos
                         valor1, valor2=funciones.solicitud()
                         
                         try:
+                            #Intento conseguir parametros
                             parametro_1, parametro_2=funciones.division(valor1,valor2)
                             
                             funciones.imprimir(parametro_1,parametro_2)
@@ -106,7 +112,13 @@ if salir==1:
                             #Hay que revisar que lo que ingrese el usuario sea casteable.
                             #O que lo vuelva a ingresar con aviso
                         except ValueError:
+                            #Si no consigue los parametros recibe el msj de la funcion division
+                            #Punto de consulta aca, solo esta este try porque si el 2do valor es cero no deberia hacer nada,
+                            #..ahora si fuera en otras divisiones si tendria que devolver algo sea 0 o no.
+                            #..pero a la hora de llamar a solicitud, ya se verifica que sean casteables tmb, asi que lo guarda y al llamar a
+                            #division pasa y devuelve el msj
                             mensaje=funciones.division(valor1, valor2)
+                            #Este msj se puede pasas a funcion imprimir
                             print(mensaje)
                             continuar=1
                             
