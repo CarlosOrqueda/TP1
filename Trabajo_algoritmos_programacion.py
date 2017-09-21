@@ -197,13 +197,14 @@ if salir==1:
         elif opcion==3:
 
             print("Salir")
-            continuar=3
+            continuar=0
+            salir=0
         else:
             print("Opcion Incorrecta")
             print("No llegué hasta acá")
 
 
 else:
-    salir=1
+    salir=0
 
 
