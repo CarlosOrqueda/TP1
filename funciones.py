@@ -1,4 +1,17 @@
 
+#funcion pide opciones submenu
+def opciones_submenu():
+    opcion=0
+    while opcion==0: 
+        try:
+            print("1 - Continuar")
+            print("2 - Ir al menú")
+            print("3 - Ir al menú principal")
+            opcion=int(input("¿Quiere continuar operando?: "))
+        except ValueError:
+            print("Ingrese una opcion valida, solo un numero")
+    return opcion
+
 #se usa esta
 
 def palabraMasLargaCantidadDeLetras():
@@ -21,9 +34,11 @@ def palabraMasLargaCantidadDeLetras():
     for cantidad in listaLarga:
         if cantidadDeLetras < len(cantidad):
             cantidadDeLetras = len(cantidad)
-    print ("Las palabras largas son: ",listaLarga)
-    print ("Tienen ",cantidadDeLetras,"caracteres")
-    return listaLarga, cantidadDeLetras
+    
+    mensaje="Las palabras largas son: "
+    palabras_largas_mensaje= mensaje + str(listaLarga)
+    
+    return  palabras_largas_mensaje #,listaLarga, cantidadDeLetras
 
 
 
@@ -51,9 +66,30 @@ def string_corto():
           lista_auxiliar.append(i)
           palabra_corta=i
     
-    print ("Las palabras cortas son: ",lista_auxiliar)
+    #print ("Las palabras cortas son: ",lista_auxiliar)
     palabras_cortas=lista_auxiliar
-    return palabras_cortas
+    mensaje="Las palabras cortas son: "
+    palabras_cortas_mensaje= mensaje + str(palabras_cortas)
+    #print (palabras_cortas_mensaje)
+    return palabras_cortas_mensaje #palabras_cortas
+
+
+#La acabo hacer y ver, parece andar bien
+
+def contar_cadena():
+    cadena=input("Ingrese una cadena de texto: ")
+    trans=cadena.maketrans(".,;!","    ")
+    cadena=cadena.translate(trans)
+    
+    lista_cadena=cadena.split()
+  
+    cantidad_palabras=len(lista_cadena)
+    
+    #print("Hay",cantidad_palabras, "palabras en la cadena de texto.")
+    mensaje="La cantidad de palabras en el texto es: "
+    cantidad_mensaje=mensaje + str(cantidad_palabras)
+    
+    return cantidad_mensaje #cantidad_palabras
 
 
 ##Se usa esta
@@ -139,10 +175,10 @@ def multiplicacion(valor1, valor2):
     print("La multiplicacion es", suma)
     return suma
 
-#multiplicacion(4,3)
+
 ###################
 
-#string_corto()
+
 #La acabo de ver, parece andar bien
 def string_largo():
     
@@ -170,39 +206,8 @@ def string_largo():
     return palabras_largas
 
 
-#La acabo hacer y ver, parece andar bien
-def contar_cadena():
-    cadena=input("Ingrese una cadena de texto: ")
-    trans=cadena.maketrans(".,;!","    ")
-    cadena=cadena.translate(trans)
-    lista_cadena=cadena.split()
-    cantidad_palabras=len(lista_cadena)
-    print("Hay",cantidad_palabras, "palabras en la cadena de texto.")
-    
-    return cantidad_palabras
-#contar_cadena()
 
-'''
-#Ni la mire, pero parce ok.
-def multiplicacion(valor1, valor2):
-    a=int(valor1)
-    b=int(valor2)
-    c = 0
-    suma=0
-    if ((a < 0 and b < 0)):
-        for i in range(b, 0):
-            suma += - a
-    elif (a > 0 and b < 0) or (a > 0 and b > 0):
-        for i in range(0, a):
-            suma += b
-    else:
-        if (b > 0 and a < 0):
-            for i in range(0, b):
-                suma += a
-    print("La multiplicacion es", suma)
 
-    return suma
-'''
 #se usa esta
 def potencias(valor1, valor2):
 
@@ -248,70 +253,24 @@ def potencias(valor1,valor2 ):
     print("La potencia es", potencia)
     return potencia
 '''
-#No revise si devuelve siempre
-'''
-def division(valor1, valor2):
-    dividendo=int(valor1)
-    sor=int(valor2)
-    div = 0
-    if ((abs(dividendo) > abs(sor)) and (sor != 0)):
-        if ((dividendo > 0 and sor > 0) or (dividendo < 0 and sor < 0)):
-            resto = dividendo
 
-            while (abs(resto) >= abs(sor)):
-                resto = resto - sor
-                div =div + 1
 
-        else:
-            if ((dividendo > 0 and sor < 0) or (dividendo < 0 and sor > 0)):
-                resto = abs(dividendo)
-                sor = abs(sor)
-                while (resto >= sor):
-                    resto =resto - sor
-                    div = div + 1
-                div = -div
-                resto = -resto
-
-    else:
-        if dividendo == 0:
-            div = 0
-            resto = dividendo
-        elif sor == 0:
-            print("No se puede dividir por 0")
-    print("La división es:", div)
-    print("El resto es:", resto)
-    return div, resto
-'''
-######################
-#La deje de usar
-'''
-def contar_palabras():
-    cadena=input("Ingrese una cadena de texto: ")
-
-    contador_palabras=0
-
-    cadena=cadena.strip()
-    for caracter in cadena:
-        if caracter == " " or caracter == "." or caracter == ";" or caracter == ",":
-            contador_palabras += 1
-        else:
-            contador_palabras = contador_palabras
-    print("Hay ",contador_palabras, "palabras en la cadena de texto.")
-
-    return contador_palabras
-'''
 
     
-#Solo la use en funciones con enteros, para cadenas no. Habia problemas con setear en el
-#Hay que pasasrle un msj para cada funcion int.
+#Solo con enteros, para cadenas habria que mod o hacer otra
 #return un valor generico vacio y otro con cadena. No probe pero con un if se podria solucionar.
 def solicitud():
-
-    valor_1=input("Ingrese un Parametro: ")
-    valor_2=input("Ingrese un Parametro: ")
-    
+    valor_1=0
+    valor_2=0
+    while valor_1==0 and valor_2==0:
+        try:
+            valor_1=int(input("Ingrese un Parametro: "))
+            valor_2=int(input("Ingrese un Parametro: "))
+        except ValueError:
+            print("Ingrese un valor valido, solo un numero")
     return valor_1,valor_2
 
 def imprimir(parametro_1="", parametro_2=""):
 
     print(parametro_1, parametro_2)
+
