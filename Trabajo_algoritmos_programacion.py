@@ -61,7 +61,7 @@ if salir==1:
                     
                     continuar=1
                     #Opcion multiplicacion
-                    #Ciclo que se podria modular en todas las opciones.
+                    #Ciclo que se podria modular
                     while continuar==1:
 
                         valor1, valor2=funciones.solicitud()
@@ -83,22 +83,15 @@ if salir==1:
                     #Ciclo que se podria modular
                     while continuar==1:
                         valor1, valor2=funciones.solicitud()
-                        
-                        try:
-                            parametro_1, parametro_2=funciones.division(valor1,valor2)
-                            
-                            funciones.imprimir(parametro_1,parametro_2)
-                            print("1 - Continuar")
-                            print("2 - Ir al menú")
-                            print("3 - Ir al menú principal")
-                            continuar=int(input("¿Quiere continuar operando?: "))
-                            #Hay que revisar que lo que ingrese el usuario sea casteable.
-                            #O que lo vuelva a ingresar con aviso
-                        except ValueError:
-                            mensaje=funciones.division(valor1, valor2)
-                            print(mensaje)
-                            continuar=1
-                            
+                        parametro_1, parametro_2=funciones.division(valor1,valor2)
+                        funciones.imprimir(parametro_1,parametro_2)
+                        print("1 - Continuar")
+                        print("2 - Ir al menú")
+                        print("3 - Ir al menú principal")
+                        continuar=int(input("¿Quiere continuar operando?: "))
+                        #Hay que revisar que lo que ingrese el usuario sea casteable.
+                        #O que lo vuelva a ingresar con aviso
+
                 elif opcion == 3:
                     #Opcion de calculo de potencias
                     continuar=1
@@ -146,7 +139,7 @@ if salir==1:
                     #Ciclo que se podria modular
                     while continuar==1:
 
-                        parametro_1=funciones.palabraMasLargaCantidadDeLetras()
+                        parametro_1=funciones.string_largo()
                         funciones.imprimir(parametro_1)
                         print("1 - Continuar")
                         print("2 - Ir al menú")
@@ -197,8 +190,8 @@ if salir==1:
         elif opcion==3:
 
             print("Salir")
-            continuar=0
             salir=0
+            continuar=0
         else:
             print("Opcion Incorrecta")
             print("No llegué hasta acá")
