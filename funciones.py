@@ -1,5 +1,5 @@
 import os
-#opciones menu, devuelve int
+#opciones menu, devuelve un valor entero sin excepcion
 def menu():
     opcion=0
     os.system('cls')
@@ -15,7 +15,7 @@ def menu():
             print("Ingrese una opcion valida, solo un numero")         
     return opcion
 
-#opciones menu num, devuelve int
+#opciones menu num, devuelve un valor entero
 def sub_menu_num():
     opcion=0
     os.system("cls")
@@ -32,7 +32,7 @@ def sub_menu_num():
            print("Ingrese una opcion valida, solo un numero")
     return opcion
 
-#opciones menu let, devuelve int
+#opciones menu let, devuelve un valor entero
 def sub_menu_let():
     os.system("cls")
     opcion=0
@@ -47,7 +47,7 @@ def sub_menu_let():
        except ValueError:
            print("Ingrese una opcion valida, solo un numero")
     return opcion
-
+#Se pide el ingreso de una cadena, si solo es un entero no se considera. 
 def solicitar_cadena():
     cadena=""
     while cadena=="":
@@ -63,10 +63,9 @@ def solicitar_cadena():
         except ValueError:
             print("No ingreso una cadena..")
     return cadena
-#solicitar_cadena()
 
-# funcion pide opciones submenu
 
+#opciones submenu, devuelve un entero sin excepcion
 def opciones_submenu():
     opcion = 0
     while opcion == 0:
@@ -105,7 +104,9 @@ def palabraMasLargaCantidadDeLetras(valor1):
     mensaje = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(listaLarga,cantidadDeLetras)
     return mensaje
 
-# Devuelve un unico string para imprimir.
+'''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
+y devuelve un string
+'''
 
 def string_corto(valor1):
     cadena = valor1 #input("Ingrese una cadena de texto: ")
@@ -134,7 +135,9 @@ def string_corto(valor1):
     #print (palabras_cortas_mensaje)
     return palabras_cortas_mensaje  # palabras_cortas
 
-# La acabo hacer y ver, parece andar bien
+'''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
+y devuelve un string
+'''
 
 def contar_cadena(valor1):
     cadena = valor1 #input("Ingrese una cadena de texto: ")
@@ -146,7 +149,9 @@ def contar_cadena(valor1):
 
     return mensaje
 
-# Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mensaje.
+
+'''Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+'''
 
 def division(valor1, valor2):
     valorA = int(valor1)
@@ -194,8 +199,8 @@ def division(valor1, valor2):
     mensaje = "La division es {} y el resto {}.".format(cociente, resto)
     return mensaje
 
-# Se ingresan dos valores enteros "valorA" y "valorB".
-# La variable "suma" devuelve un entero como resultado de la multiplicacion por suma sucesiva.
+'''Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+'''
 
 def multiplicacion(valor1, valor2):
     valorA = int(valor1)
@@ -231,9 +236,8 @@ def multiplicacion(valor1, valor2):
     return mensaje
 
 
-# Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mesaje unicamente
-# Y que imprima eso en la funcion generica imprimir.
-
+'''Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+'''
 def potencias(valor1, valor2):
     valorA = int(valor1)
     valorB = int(valor2)
@@ -258,9 +262,7 @@ def potencias(valor1, valor2):
     return mensaje
 
 
-# Solo con enteros, para cadenas habria que mod o hacer otra
-# return un valor generico vacio y otro con cadena. No probe pero con un if se podria solucionar.
-
+'''Se piden parametros enteros sin excepcion para las funciones con enteros'''
 def solicitud():
     valor_1 = ""
     valor_2 = ""
@@ -280,10 +282,8 @@ def solicitud():
                 valor_2=""
             
     return valor_1, valor_2
-#solicitud()
 
 
-# Funcion imprimir generica
-
+'''Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto'''
 def imprimir(parametro_1="", parametro_2=""):
     print(parametro_1, parametro_2)
