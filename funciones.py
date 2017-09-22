@@ -255,9 +255,9 @@ def potencias(valor1, valor2):
 # return un valor generico vacio y otro con cadena. No probe pero con un if se podria solucionar.
 
 def solicitud():
-    valor_1 = 0
-    valor_2 = 0
-    while valor_1 == 0 and valor_2 == 0:
+    valor_1 = ""
+    valor_2 = ""
+    while valor_1 == "" and valor_2 == "":
         try:
             valor_1 = int(input("Ingrese un Parametro: "))
             valor_2 = int(input("Ingrese un Parametro: "))

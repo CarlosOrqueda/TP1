@@ -61,11 +61,16 @@ if salir==1:
                     #Opcion de calculo de potencias
                     continuar=1
                     while continuar == 1:
-       
                         valor1, valor2=funciones.solicitud()
-                        parametro_1=funciones.potencias(valor1, valor2)
-                        funciones.imprimir(parametro_1)
-                        #Sub menu ciclo
+                        try:
+                            parametro_1=funciones.potencias(valor1, valor2)
+                            funciones.imprimir(parametro_1)
+                            #Sub menu ciclo
+                            
+                        except ValueError:
+                             mensaje=funciones.potencias(valor1, valor2)
+                             print(mensaje)
+                             continuar=1
                         continuar=funciones.opciones_submenu()
 
                 elif opcion == 4:
