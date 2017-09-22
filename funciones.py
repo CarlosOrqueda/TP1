@@ -48,8 +48,6 @@ def sub_menu_let():
            print("Ingrese una opcion valida, solo un numero")
     return opcion
 
-
-
 def solicitar_cadena():
     cadena=""
     while cadena=="":
@@ -100,7 +98,6 @@ def palabraMasLargaCantidadDeLetras(valor1):
     mensaje = "Las palabras largas son {} y la cantidad de letras es {}.".format(listaLarga,cantidadDeLetras)
     return mensaje
 
-
 # Devuelve un unico string para imprimir.
 
 def string_corto(valor1):
@@ -123,18 +120,12 @@ def string_corto(valor1):
             lista_auxiliar.append(i)
             palabra_corta = i
     cantidad=len(palabra_corta)
-    print (cantidad)
-
-    
     palabras_cortas = str(lista_auxiliar)
-    
     palabras_cortas_mensaje="Las palabras cortas son {} y tienen {} caracteres ".format(palabras_cortas,cantidad)
     
     
     #print (palabras_cortas_mensaje)
     return palabras_cortas_mensaje  # palabras_cortas
-
-
 
 # La acabo hacer y ver, parece andar bien
 
@@ -147,7 +138,6 @@ def contar_cadena(valor1):
     mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras)
 
     return mensaje
-
 
 # Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mensaje.
 
@@ -253,6 +243,9 @@ def potencias(valor1, valor2):
             for i in range(0, valorB):
                 multp = multp * valorA
     else:
+        if valorA == valorB == 0:
+            mensaje = "La base y el exponente no pueden ser 0 a la vez."
+            return mensaje
         multp = 0
     mensaje = "La potencia es " + str(multp)
     return mensaje
