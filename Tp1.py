@@ -49,10 +49,18 @@ def potencia(valorA, valorB):
             for i in range(0, valorB):
                 multp = multp * valorA
     else:
+        if valorA == valorB == 0:
+            mensaje = "La base y el exponente no pueden ser 0 a la vez."
+            print(mensaje)
+            return mensaje
         multp = 0
-    return multp
+    mensaje = "La potencia es " + str(multp)
+    return mensaje
 
-
+a=5
+b=5
+mensaje = potencia(a,b)
+print(mensaje)
 # Se ingresan dos valores enteros "valorA" y "valorB".
 '''La variable "resto" devuelve un entero y "cociente" devuelve un entero o float como resultado de la division por
 resta sucesiva.'''
