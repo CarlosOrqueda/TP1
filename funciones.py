@@ -53,6 +53,13 @@ def solicitar_cadena():
     while cadena=="":
         try:  
             cadena=input("Ingrese una cadena de texto :")
+            try:
+                cadena=int(cadena)
+                print("No se puede considerar la operación con solo numeros")
+                cadena=""
+            except ValueError:
+                cadena=cadena
+                
         except ValueError:
             print("No ingreso una cadena..")
     return cadena
