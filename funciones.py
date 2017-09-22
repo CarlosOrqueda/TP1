@@ -102,7 +102,7 @@ def palabraMasLargaCantidadDeLetras(valor1):
         if cantidadDeLetras < len(cantidad):
             cantidadDeLetras = len(cantidad)
 
-    mensaje = "Las palabras largas son {} y la cantidad de letras es {}.".format(listaLarga,cantidadDeLetras)
+    mensaje = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(listaLarga,cantidadDeLetras)
     return mensaje
 
 # Devuelve un unico string para imprimir.
@@ -126,9 +126,9 @@ def string_corto(valor1):
             # lista_auxiliar.append(palabra_corta)
             lista_auxiliar.append(i)
             palabra_corta = i
-    cantidad=len(palabra_corta)
+    cantidad = len(palabra_corta)
     palabras_cortas = str(lista_auxiliar)
-    palabras_cortas_mensaje="Las palabras cortas son {} y tienen {} caracteres ".format(palabras_cortas,cantidad)
+    palabras_cortas_mensaje = "La/s palabra/s mas corta/s es/son {}, incluyendo numeros y tiene {} caracteres.".format(palabras_cortas,cantidad)
     
     
     #print (palabras_cortas_mensaje)
@@ -142,7 +142,7 @@ def contar_cadena(valor1):
     cadena = cadena.translate(trans)
     lista_cadena = cadena.split()
     cantidad_palabras = len(lista_cadena)
-    mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras)
+    mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
 
     return mensaje
 
