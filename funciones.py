@@ -1,3 +1,55 @@
+import os
+#opciones menu, devuelve int
+def menu():
+    opcion=0
+    os.system('cls')
+    while opcion==0:
+        os.system('cls')
+        try:      
+            print("Selecciona una opción")
+            print("1 - Numérico")
+            print("2 - Cadenas de carácteres")
+            print("3 - Salir")
+            opcion=int(input("Ingrese una Opcion: "))
+        except ValueError:
+            print("Ingrese una opcion valida, solo un numero")         
+    return opcion
+
+#opciones menu num, devuelve int
+def sub_menu_num():
+    opcion=0
+    os.system("cls")
+    while opcion==0:
+       os.system('cls')
+       try:
+           print("Selecciona una opción")
+           print("1 - Multiplicación")
+           print("2 - División y resto")
+           print("3 - Potencia")
+           print("4 - Volver al Menú principal")
+           opcion=int(input("Ingrese una Opcion: "))
+       except ValueError:
+           print("Ingrese una opcion valida, solo un numero")
+    return opcion
+
+#opciones menu let, devuelve int
+def sub_menu_let():
+    os.system("cls")
+    opcion=0
+    while opcion==0:      
+       try:
+           print("Selecciona una opción")
+           print("1 - Palabra mas Larga")
+           print("2 - Palabra mas corta")
+           print("3 - Contar Palabras")
+           print("4 - Volver al Menú principal")
+           opcion=int(input("Ingrese una Opcion: "))
+       except ValueError:
+           print("Ingrese una opcion valida, solo un numero")
+    return opcion
+
+
+
 def solicitar_cadena():
     cadena=""
     while cadena=="":

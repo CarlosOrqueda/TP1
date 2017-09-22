@@ -2,60 +2,7 @@
 
 import funciones
 import os
-#Las funciones de menu solo devuelven enteros
-#Habria que moverlas las funciones menu de aca a la otra hoja y hacer los llamados.
-#Agregar una funcion que pida cadenas string generica, y verificar la impresion de funciones int
-#Controlo excepcion cast de todas, habria que moverlas a la hoja funcioines.
-def menu():
-    opcion=0
-    os.system('cls')
-    while opcion==0:
-        os.system('cls')
-        try:      
-            print("Selecciona una opción")
-            print("1 - Numérico")
-            print("2 - Cadenas de carácteres")
-            print("3 - Salir")
-            opcion=int(input("Ingrese una Opcion: "))
-        except ValueError:
-            print("Ingrese una opcion valida, solo un numero")         
-    return opcion
-
-
-def sub_menu_num():
-    opcion=0
-    os.system("cls")
-    while opcion==0:
-       os.system('cls')
-       try:
-           print("Selecciona una opción")
-           print("1 - Multiplicación")
-           print("2 - División y resto")
-           print("3 - Potencia")
-           print("4 - Volver al Menú principal")
-           opcion=int(input("Ingrese una Opcion: "))
-       except ValueError:
-           print("Ingrese una opcion valida, solo un numero")
-    return opcion
-
-def sub_menu_let():
-    os.system("cls")
-    opcion=0
-    while opcion==0:      
-       try:
-           print("Selecciona una opción")
-           print("1 - Palabra mas Larga")
-           print("2 - Palabra mas corta")
-           print("3 - Contar Palabras")
-           print("4 - Volver al Menú principal")
-           opcion=int(input("Ingrese una Opcion: "))
-       except ValueError:
-           print("Ingrese una opcion valida, solo un numero")
-    return opcion
-
-
 #Probar excepciones de funciones.
-
 #Declaro variable de inicio 
 salir=1
 if salir==1:
@@ -63,7 +10,7 @@ if salir==1:
     continuar=3
     while continuar==3:
         #La func menu devuelve un int.
-        opcion=menu()
+        opcion=funciones.menu()
         if opcion == 1:
             print("Estas en la Opcion Menú Numerico")
           
@@ -71,7 +18,7 @@ if salir==1:
             continuar=2
             while continuar==2:
 
-                opcion=sub_menu_num()
+                opcion=funciones.sub_menu_num()
                 #Devuelve opcion del menu num
 
                 if opcion == 1:
@@ -137,7 +84,7 @@ if salir==1:
             continuar=2
             while continuar==2:
 
-                opcion=sub_menu_let()
+                opcion=funciones.sub_menu_let()
                 #Devuelve opcion del menu num
 
                 if opcion == 1:
