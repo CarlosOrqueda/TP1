@@ -1,25 +1,24 @@
+# funcion pide opciones submenu
 
-#funcion pide opciones submenu
 def opciones_submenu():
-    opcion=0
-    while opcion==0: 
+    opcion = 0
+    while opcion == 0:
         try:
             print("1 - Continuar")
             print("2 - Ir al menú")
             print("3 - Ir al menú principal")
-            opcion=int(input("¿Quiere continuar operando?: "))
+            opcion = int(input("¿Quiere continuar operando?: "))
         except ValueError:
             print("Ingrese una opcion valida, solo un numero")
     return opcion
+
 
 # Se ingresan un String "frase".
 '''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
 de la cantidad de letras de la o las palabras.'''
 
 def palabraMasLargaCantidadDeLetras():
-
-    frase=input("Ingrese una cadena de texto: ")
-
+    frase = input("Ingrese una cadena de texto: ")
     cantidadDeLetras = 0
     listaLarga = []
     reemplazar = frase.maketrans(",;.", "   ")
@@ -36,65 +35,59 @@ def palabraMasLargaCantidadDeLetras():
     for cantidad in listaLarga:
         if cantidadDeLetras < len(cantidad):
             cantidadDeLetras = len(cantidad)
-    
-    mensaje="Las palabras largas son: "
-    palabras_largas_mensaje= mensaje + str(listaLarga)
-    
-    return  palabras_largas_mensaje #,listaLarga, cantidadDeLetras
 
-#Devuelve un unico string para imprimir.
+    mensaje = "Las palabras largas son {} y la cantidad de letras es {}.".format(listaLarga,cantidadDeLetras)
+    return mensaje
+
+
+# Devuelve un unico string para imprimir.
+
 def string_corto():
-    
-    cadena=input("Ingrese una cadena de texto: ")
-    outside="  "
-    inside=".,;"
-    trans=cadena.maketrans(".,;!","    ")
-    cadena=cadena.translate(trans)
-    lista_cadena=cadena.split()
-    palabra_corta= lista_cadena[0]
-    lista_auxiliar=[]
-    #lista_auxiliar.append(palabra_corta)
+    cadena = input("Ingrese una cadena de texto: ")
+    outside = "  "
+    inside = ".,;"
+    trans = cadena.maketrans(".,;!", "    ")
+    cadena = cadena.translate(trans)
+    lista_cadena = cadena.split()
+    palabra_corta = lista_cadena[0]
+    lista_auxiliar = []
+    # lista_auxiliar.append(palabra_corta)
     for i in lista_cadena:
-       if len(palabra_corta)>len(i):
-          del lista_auxiliar[::]
-          palabra_corta=i
-          lista_auxiliar.append(palabra_corta)
-       elif len (palabra_corta)==len(i):
-          #lista_auxiliar.append(palabra_corta)
-          lista_auxiliar.append(i)
-          palabra_corta=i
-    
-    #print ("Las palabras cortas son: ",lista_auxiliar)
-    palabras_cortas=lista_auxiliar
-    mensaje="Las palabras cortas son: "
-    palabras_cortas_mensaje= mensaje + str(palabras_cortas)
-    #print (palabras_cortas_mensaje)
-    return palabras_cortas_mensaje #palabras_cortas
+        if len(palabra_corta) > len(i):
+            del lista_auxiliar[::]
+            palabra_corta = i
+            lista_auxiliar.append(palabra_corta)
+        elif len(palabra_corta) == len(i):
+            # lista_auxiliar.append(palabra_corta)
+            lista_auxiliar.append(i)
+            palabra_corta = i
+
+    # print ("Las palabras cortas son: ",lista_auxiliar)
+    palabras_cortas = lista_auxiliar
+    mensaje = "Las palabras cortas son: "
+    palabras_cortas_mensaje = mensaje + str(palabras_cortas)
+    # print (palabras_cortas_mensaje)
+    return palabras_cortas_mensaje  # palabras_cortas
 
 
-#La acabo hacer y ver, parece andar bien
+# La acabo hacer y ver, parece andar bien
 
 def contar_cadena():
-    cadena=input("Ingrese una cadena de texto: ")
-    trans=cadena.maketrans(".,;!","    ")
-    cadena=cadena.translate(trans)
-    
-    lista_cadena=cadena.split()
-  
-    cantidad_palabras=len(lista_cadena)
-    
-    #print("Hay",cantidad_palabras, "palabras en la cadena de texto.")
-    mensaje="La cantidad de palabras en el texto es: "
-    cantidad_mensaje=mensaje + str(cantidad_palabras)
-    
-    return cantidad_mensaje #cantidad_palabras
+    cadena = input("Ingrese una cadena de texto: ")
+    trans = cadena.maketrans(".,;!", "    ")
+    cadena = cadena.translate(trans)
+    lista_cadena = cadena.split()
+    cantidad_palabras = len(lista_cadena)
+    mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras)
+
+    return mensaje
 
 
-#Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mensaje.
+# Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mensaje.
 
 def division(valor1, valor2):
-    valorA=int(valor1)
-    valorB=int(valor2)
+    valorA = int(valor1)
+    valorB = int(valor2)
 
     cociente = 0
     contadorDeDecimales = 0
@@ -134,18 +127,17 @@ def division(valor1, valor2):
         resto = ""
         cociente = ""
         return mensaje
-   
-    print("La division es: ", cociente)
-    print("El resto es: ", resto)
-    return cociente, resto
+
+    mensaje = "La division es {} y el resto {}.".format(cociente, resto)
+    return mensaje
+
 
 # Se ingresan dos valores enteros "valorA" y "valorB".
 # La variable "suma" devuelve un entero como resultado de la multiplicacion por suma sucesiva.
 
 def multiplicacion(valor1, valor2):
-
-    valorA=int(valor1)
-    valorB=int(valor2)
+    valorA = int(valor1)
+    valorB = int(valor2)
     suma = 0
     if valorA < 0 and valorB < 0 or valorA > 0 and valorB > 0:
         if valorA < 0 and valorB < 0:
@@ -173,16 +165,16 @@ def multiplicacion(valor1, valor2):
         else:
             for i in range(0, valorA):
                 suma += valorB
-    print("La multiplicacion es", suma)
-    return suma
+    mensaje = "La multiplicacion es " + str(suma)
+    return mensaje
 
-#Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mesaje unicamente
-#Y que imprima eso en la funcion generica imprimir.
+
+# Imprime dentro de la funcion y aparte devuelve valores, habria que mandarlo en un mesaje unicamente
+# Y que imprima eso en la funcion generica imprimir.
 
 def potencias(valor1, valor2):
-
-    valorA=int(valor1)
-    valorB=int(valor2)
+    valorA = int(valor1)
+    valorB = int(valor2)
     multp = 1
     if valorA != 0 and valorB != 0:
         if valorA > 0 and valorB > 0:
@@ -197,27 +189,26 @@ def potencias(valor1, valor2):
                 multp = multp * valorA
     else:
         multp = 0
-    print("La potencia es", multp)   
-    return multp
+    mensaje = "La potencia es" + str(multp)
+    return mensaje
 
-    
-#Solo con enteros, para cadenas habria que mod o hacer otra
-#return un valor generico vacio y otro con cadena. No probe pero con un if se podria solucionar.
+
+# Solo con enteros, para cadenas habria que mod o hacer otra
+# return un valor generico vacio y otro con cadena. No probe pero con un if se podria solucionar.
 
 def solicitud():
-    valor_1=0
-    valor_2=0
-    while valor_1==0 and valor_2==0:
+    valor_1 = 0
+    valor_2 = 0
+    while valor_1 == 0 and valor_2 == 0:
         try:
-            valor_1=int(input("Ingrese un Parametro: "))
-            valor_2=int(input("Ingrese un Parametro: "))
+            valor_1 = int(input("Ingrese un Parametro: "))
+            valor_2 = int(input("Ingrese un Parametro: "))
         except ValueError:
             print("Ingrese un valor valido, solo un numero")
-    return valor_1,valor_2
+    return valor_1, valor_2
 
-#Funcion imprimir generica
+
+# Funcion imprimir generica
 
 def imprimir(parametro_1="", parametro_2=""):
-
     print(parametro_1, parametro_2)
-
