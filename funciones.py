@@ -85,6 +85,7 @@ def opciones_submenu():
     return opcion
 
 
+# Indicador de la o las palabras mas larga y contador de sus caracteres.
 # Se ingresan un String "frase".
 '''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
 de la cantidad de letras de la o las palabras.'''
@@ -114,6 +115,7 @@ def palabraMasLargaCantidadDeLetras(valor1):
     return mensaje
 
 
+# Indicador de la o las palabras mas corta y contador de sus caracteres.
 '''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
 y devuelve un string
 '''
@@ -143,6 +145,7 @@ def string_corto(valor1):
     return palabras_cortas_mensaje  # palabras_cortas
 
 
+# Contador de palabras en una cadena.
 '''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
 y devuelve un string'''
 
@@ -158,6 +161,7 @@ def contar_cadena(valor1):
     return mensaje
 
 
+# Division por resta.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
 def division(valor1, valor2):
@@ -207,9 +211,8 @@ def division(valor1, valor2):
     return mensaje
 
 
+# Multiplicacion por suma.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
-
-
 
 def multiplicacion(valor1, valor2):
     valorA = int(valor1)
@@ -245,8 +248,8 @@ def multiplicacion(valor1, valor2):
     return mensaje
 
 
+# Potencia por multiplicacion.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
-
 
 
 def potencias(valor1, valor2):
