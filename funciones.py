@@ -260,10 +260,20 @@ def solicitud():
     while valor_1 == "" and valor_2 == "":
         try:
             valor_1 = int(input("Ingrese un Parametro: "))
-            valor_2 = int(input("Ingrese un Parametro: "))
+            try:
+                valor_2 = int(input("Ingrese un Parametro: "))
+            except ValueError:
+                print("Ingrese un valor valido, solo un numero")
+                valor_1=""
+                valor_2=""
+        
         except ValueError:
-            print("Ingrese un valor valido, solo un numero")
+                print("Ingrese un valor valido, solo un numero")
+                valor_1=""
+                valor_2=""
+            
     return valor_1, valor_2
+#solicitud()
 
 
 # Funcion imprimir generica
