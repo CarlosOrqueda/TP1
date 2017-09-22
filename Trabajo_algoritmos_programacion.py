@@ -53,7 +53,7 @@ def sub_menu_let():
            print("Ingrese una opcion valida, solo un numero")
     return opcion
 
-#Siempre comienza, igual el if inicial esta medio al dope pero abria que tabular todo y revisar.
+
 #Probar excepciones de funciones.
 
 #Declaro variable de inicio 
@@ -67,7 +67,7 @@ if salir==1:
         if opcion == 1:
             print("Estas en la Opcion Menú Numerico")
           
-            #Declaro variable, que me va a permitir eleigir si continuar dentro de las sub
+            #Declaro variable, que me va a permitir elegir si continuar dentro de las sub
             continuar=2
             while continuar==2:
 
@@ -87,16 +87,13 @@ if salir==1:
                         funciones.imprimir(parametro_1)
                         #Sub menu ciclo-controlo que sea casteable,se controla en la hoja funcion.
                         continuar=funciones.opciones_submenu()
-                       
-                        #O que lo vuelva a ingresar con aviso
-           
 
                 elif opcion == 2:
                     #Declaro la misma variable
                     #Piso la anterior variable
                     continuar=1
                     #Opcion division
-                    #Ciclo que se podria modular
+                    
                     while continuar==1:
                         #Pido valores genericos con msj genericos
                         valor1, valor2=funciones.solicitud()
@@ -104,28 +101,18 @@ if salir==1:
                         try:
                             #Intento conseguir parametros
                             parametro_1, parametro_2=funciones.division(valor1,valor2)
+                            funciones.imprimir(parametro_1,parametro_2) 
+                            #continuar=funciones.opciones_submenu()
                             
-                            funciones.imprimir(parametro_1,parametro_2)
-                            #Sub menu ciclo
-                            continuar=funciones.opciones_submenu()
-                           
-                            #Hay que revisar que lo que ingrese el usuario sea casteable.
-                            #O que lo vuelva a ingresar con aviso
                         except ValueError:
-                            #Si no consigue los parametros recibe el msj de la funcion division
-                            #Punto de consulta aca, solo esta este try porque si el 2do valor es cero no deberia hacer nada,
-                            #..ahora si fuera en otras divisiones si tendria que devolver algo sea 0 o no.
-                            #..pero a la hora de llamar a solicitud, ya se verifica que sean casteables tmb, asi que lo guarda y al llamar a
-                            #division pasa y devuelve el msj
-                            mensaje=funciones.division(valor1, valor2)
-                            #Este msj se puede pasas a funcion imprimir
+                           
+                            mensaje=funciones.division(valor1, valor2) 
                             print(mensaje)
                             continuar=1
-                            
+                        continuar=funciones.opciones_submenu()
                 elif opcion == 3:
                     #Opcion de calculo de potencias
                     continuar=1
-                    #Ciclo que se podria modular
                     while continuar == 1:
        
                         valor1, valor2=funciones.solicitud()
@@ -133,8 +120,6 @@ if salir==1:
                         funciones.imprimir(parametro_1)
                         #Sub menu ciclo
                         continuar=funciones.opciones_submenu()
-                        #Hay que revisar que lo que ingrese el usuario sea casteable.
-                        #O que lo vuelva a ingresar con aviso
 
                 elif opcion == 4:
                     #Opcion regreso al menu principal
@@ -154,17 +139,16 @@ if salir==1:
 
                 opcion=sub_menu_let()
                 #Devuelve opcion del menu num
-                #Hay que revisar que lo que ingrese el usuario sea casteable.
-                #O que lo vuelva a ingresar con aviso
 
                 if opcion == 1:
                     #Declaro la misma variable
                     #Opcion string largo
                     continuar=1
-                    #Ciclo que se podria modular
+                    
                     while continuar==1:
+                        valor1=funciones.solicitar_cadena()
 
-                        parametro_1=funciones.palabraMasLargaCantidadDeLetras()
+                        parametro_1=funciones.palabraMasLargaCantidadDeLetras(valor1)
                         funciones.imprimir(parametro_1)
                         #Sub menu ciclo
                         continuar=funciones.opciones_submenu()
@@ -173,26 +157,24 @@ if salir==1:
                     #Declaro la misma variable
                     continuar=1
                     #Opcion string corto
-                    #Ciclo que se podria modular
+                    
                     while continuar==1:
-                        parametro_1=funciones.string_corto()
+                        valor1=funciones.solicitar_cadena()
+                        parametro_1=funciones.string_corto(valor1)
                         funciones.imprimir(parametro_1)
                         #Sub menu ciclo
                         continuar=funciones.opciones_submenu()
-                        #Hay que revisar que lo que ingrese el usuario sea casteable.
-                        #O que lo vuelva a ingresar con aviso
-
+                        
                 elif opcion == 3:
                     continuar=1
-                    #Ciclo que se podria modular
+                    
                     #Opcion contar palabras
                     while continuar==1:
-                        parametro_1=funciones.contar_cadena()
+                        valor1=funciones.solicitar_cadena()
+                        parametro_1=funciones.contar_cadena(valor1)
                         funciones.imprimir(parametro_1)
                         #Sub menu ciclo
                         continuar=funciones.opciones_submenu()
-                        #Hay que revisar que lo que ingrese el usuario sea casteable.
-                        #O que lo vuelva a ingresar con aviso
 
                 elif opcion == 4:
                     #Opcion menu principal

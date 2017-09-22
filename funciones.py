@@ -1,3 +1,13 @@
+def solicitar_cadena():
+    cadena=""
+    while cadena=="":
+        try:  
+            cadena=input("Ingrese una cadena de texto :")
+        except ValueError:
+            print("No ingreso una cadena..")
+    return cadena
+#solicitar_cadena()
+
 # funcion pide opciones submenu
 
 def opciones_submenu():
@@ -12,13 +22,12 @@ def opciones_submenu():
             print("Ingrese una opcion valida, solo un numero")
     return opcion
 
-
 # Se ingresan un String "frase".
 '''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
 de la cantidad de letras de la o las palabras.'''
 
-def palabraMasLargaCantidadDeLetras():
-    frase = input("Ingrese una cadena de texto: ")
+def palabraMasLargaCantidadDeLetras(valor1):
+    frase = valor1 #input("Ingrese una cadena de texto: ")
     cantidadDeLetras = 0
     listaLarga = []
     reemplazar = frase.maketrans(",;.", "   ")
@@ -42,8 +51,8 @@ def palabraMasLargaCantidadDeLetras():
 
 # Devuelve un unico string para imprimir.
 
-def string_corto():
-    cadena = input("Ingrese una cadena de texto: ")
+def string_corto(valor1):
+    cadena = valor1 #input("Ingrese una cadena de texto: ")
     outside = "  "
     inside = ".,;"
     trans = cadena.maketrans(".,;!", "    ")
@@ -61,19 +70,24 @@ def string_corto():
             # lista_auxiliar.append(palabra_corta)
             lista_auxiliar.append(i)
             palabra_corta = i
+    cantidad=len(palabra_corta)
+    print (cantidad)
 
-    # print ("Las palabras cortas son: ",lista_auxiliar)
-    palabras_cortas = lista_auxiliar
-    mensaje = "Las palabras cortas son: "
-    palabras_cortas_mensaje = mensaje + str(palabras_cortas)
-    # print (palabras_cortas_mensaje)
+    
+    palabras_cortas = str(lista_auxiliar)
+    
+    palabras_cortas_mensaje="Las palabras cortas son {} y tienen {} caracteres ".format(palabras_cortas,cantidad)
+    
+    
+    #print (palabras_cortas_mensaje)
     return palabras_cortas_mensaje  # palabras_cortas
+
 
 
 # La acabo hacer y ver, parece andar bien
 
-def contar_cadena():
-    cadena = input("Ingrese una cadena de texto: ")
+def contar_cadena(valor1):
+    cadena = valor1 #input("Ingrese una cadena de texto: ")
     trans = cadena.maketrans(".,;!", "    ")
     cadena = cadena.translate(trans)
     lista_cadena = cadena.split()
@@ -130,7 +144,6 @@ def division(valor1, valor2):
 
     mensaje = "La division es {} y el resto {}.".format(cociente, resto)
     return mensaje
-
 
 # Se ingresan dos valores enteros "valorA" y "valorB".
 # La variable "suma" devuelve un entero como resultado de la multiplicacion por suma sucesiva.
@@ -189,7 +202,7 @@ def potencias(valor1, valor2):
                 multp = multp * valorA
     else:
         multp = 0
-    mensaje = "La potencia es" + str(multp)
+    mensaje = "La potencia es " + str(multp)
     return mensaje
 
 
