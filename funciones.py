@@ -1,71 +1,77 @@
 import os
-#opciones menu, devuelve un valor entero sin excepcion
+
+
+# opciones menu, devuelve un valor entero sin excepcion
 def menu():
-    opcion=0
+    opcion = 0
     os.system('cls')
-    while opcion==0:
+    while opcion == 0:
         os.system('cls')
-        try:      
+        try:
             print("Selecciona una opción")
             print("1 - Numérico")
             print("2 - Cadenas de carácteres")
             print("3 - Salir")
-            opcion=int(input("Ingrese una Opcion: "))
+            opcion = int(input("Ingrese una Opcion: "))
         except ValueError:
-            print("Ingrese una opcion valida, solo un numero")         
+            print("Ingrese una opcion valida, solo un numero")
     return opcion
 
-#opciones menu num, devuelve un valor entero
+
+# opciones menu num, devuelve un valor entero
 def sub_menu_num():
-    opcion=0
+    opcion = 0
     os.system("cls")
-    while opcion==0:
-       os.system('cls')
-       try:
-           print("Selecciona una opción")
-           print("1 - Multiplicación")
-           print("2 - División y resto")
-           print("3 - Potencia")
-           print("4 - Volver al Menú principal")
-           opcion=int(input("Ingrese una Opcion: "))
-       except ValueError:
-           print("Ingrese una opcion valida, solo un numero")
+    while opcion == 0:
+        os.system('cls')
+        try:
+            print("Selecciona una opción")
+            print("1 - Multiplicación")
+            print("2 - División y resto")
+            print("3 - Potencia")
+            print("4 - Volver al Menú principal")
+            opcion = int(input("Ingrese una Opcion: "))
+        except ValueError:
+            print("Ingrese una opcion valida, solo un numero")
     return opcion
 
-#opciones menu let, devuelve un valor entero
+
+# opciones menu let, devuelve un valor entero
 def sub_menu_let():
     os.system("cls")
-    opcion=0
-    while opcion==0:      
-       try:
-           print("Selecciona una opción")
-           print("1 - Palabra mas Larga")
-           print("2 - Palabra mas corta")
-           print("3 - Contar Palabras")
-           print("4 - Volver al Menú principal")
-           opcion=int(input("Ingrese una Opcion: "))
-       except ValueError:
-           print("Ingrese una opcion valida, solo un numero")
+    opcion = 0
+    while opcion == 0:
+        try:
+            print("Selecciona una opción")
+            print("1 - Palabra mas Larga")
+            print("2 - Palabra mas corta")
+            print("3 - Contar Palabras")
+            print("4 - Volver al Menú principal")
+            opcion = int(input("Ingrese una Opcion: "))
+        except ValueError:
+            print("Ingrese una opcion valida, solo un numero")
     return opcion
-#Se pide el ingreso de una cadena, si solo es un entero no se considera. 
+
+
+# Se pide el ingreso de una cadena, si solo es un entero no se considera.
 def solicitar_cadena():
-    cadena=""
-    while cadena=="":
-        try:  
-            cadena=input("Ingrese una cadena de texto :")
+    cadena = ""
+    while cadena == "":
+        try:
+            cadena = input("Ingrese una cadena de texto :")
             try:
-                cadena=int(cadena)
+                cadena = int(cadena)
                 print("No se puede considerar la operación con solo numeros")
-                cadena=""
+                cadena = ""
             except ValueError:
-                cadena=cadena
-                
+                cadena = cadena
+
         except ValueError:
             print("No ingreso una cadena..")
     return cadena
 
 
-#opciones submenu, devuelve un entero sin excepcion
+# opciones submenu, devuelve un entero sin excepcion
 def opciones_submenu():
     opcion = 0
     while opcion == 0:
@@ -78,12 +84,14 @@ def opciones_submenu():
             print("Ingrese una opcion valida, solo un numero")
     return opcion
 
+
 # Se ingresan un String "frase".
 '''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
 de la cantidad de letras de la o las palabras.'''
 
+
 def palabraMasLargaCantidadDeLetras(valor1):
-    frase = valor1 #input("Ingrese una cadena de texto: ")
+    frase = valor1
     cantidadDeLetras = 0
     listaLarga = []
     reemplazar = frase.maketrans(",;.", "   ")
@@ -101,15 +109,18 @@ def palabraMasLargaCantidadDeLetras(valor1):
         if cantidadDeLetras < len(cantidad):
             cantidadDeLetras = len(cantidad)
 
-    mensaje = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(listaLarga,cantidadDeLetras)
+    mensaje = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(
+        listaLarga, cantidadDeLetras)
     return mensaje
+
 
 '''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
 y devuelve un string
 '''
 
+
 def string_corto(valor1):
-    cadena = valor1 #input("Ingrese una cadena de texto: ")
+    cadena = valor1
     outside = "  "
     inside = ".,;"
     trans = cadena.maketrans(".,;!", "    ")
@@ -117,30 +128,27 @@ def string_corto(valor1):
     lista_cadena = cadena.split()
     palabra_corta = lista_cadena[0]
     lista_auxiliar = []
-    # lista_auxiliar.append(palabra_corta)
     for i in lista_cadena:
         if len(palabra_corta) > len(i):
             del lista_auxiliar[::]
             palabra_corta = i
             lista_auxiliar.append(palabra_corta)
         elif len(palabra_corta) == len(i):
-            # lista_auxiliar.append(palabra_corta)
             lista_auxiliar.append(i)
             palabra_corta = i
     cantidad = len(palabra_corta)
     palabras_cortas = str(lista_auxiliar)
-    palabras_cortas_mensaje = "La/s palabra/s mas corta/s es/son {}, incluyendo numeros y tiene {} caracteres.".format(palabras_cortas,cantidad)
-    
-    
-    #print (palabras_cortas_mensaje)
+    palabras_cortas_mensaje = "La/s palabra/s mas corta/s es/son {}, incluyendo numeros y tiene {} caracteres.".format(
+        palabras_cortas, cantidad)
     return palabras_cortas_mensaje  # palabras_cortas
 
+
 '''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
-y devuelve un string
-'''
+y devuelve un string'''
+
 
 def contar_cadena(valor1):
-    cadena = valor1 #input("Ingrese una cadena de texto: ")
+    cadena = valor1
     trans = cadena.maketrans(".,;!", "    ")
     cadena = cadena.translate(trans)
     lista_cadena = cadena.split()
@@ -150,8 +158,7 @@ def contar_cadena(valor1):
     return mensaje
 
 
-'''Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
-'''
+# Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
 def division(valor1, valor2):
     valorA = int(valor1)
@@ -199,8 +206,10 @@ def division(valor1, valor2):
     mensaje = "La division es {} y el resto {}.".format(cociente, resto)
     return mensaje
 
-'''Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
-'''
+
+# Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+
+
 
 def multiplicacion(valor1, valor2):
     valorA = int(valor1)
@@ -236,8 +245,10 @@ def multiplicacion(valor1, valor2):
     return mensaje
 
 
-'''Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
-'''
+# Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+
+
+
 def potencias(valor1, valor2):
     valorA = int(valor1)
     valorB = int(valor2)
@@ -262,7 +273,9 @@ def potencias(valor1, valor2):
     return mensaje
 
 
-'''Se piden parametros enteros sin excepcion para las funciones con enteros'''
+# Se piden parametros enteros sin excepcion para las funciones con enteros
+
+
 def solicitud():
     valor_1 = ""
     valor_2 = ""
@@ -273,17 +286,17 @@ def solicitud():
                 valor_2 = int(input("Ingrese un Parametro: "))
             except ValueError:
                 print("Ingrese un valor valido, solo un numero")
-                valor_1=""
-                valor_2=""
-        
+                valor_1 = ""
+                valor_2 = ""
         except ValueError:
-                print("Ingrese un valor valido, solo un numero")
-                valor_1=""
-                valor_2=""
-            
+            print("Ingrese un valor valido, solo un numero")
+            valor_1 = ""
+            valor_2 = ""
     return valor_1, valor_2
 
 
-'''Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto'''
+# Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto
+
+
 def imprimir(parametro_1="", parametro_2=""):
     print(parametro_1, parametro_2)
