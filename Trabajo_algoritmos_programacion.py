@@ -1,3 +1,9 @@
+'''Trabajo Práctico N°1
+   Algoritmos y Programación
+   Catedra: Guarna
+   Integrantes: Carlos Orqueda
+                Cristian Alarcón'''
+
 # Importo hoja de funciones
 import funciones
 import os
@@ -85,6 +91,7 @@ if salir == 1:
                     continuar = 2
 
                     print("Opcion Incorrecta")
+                    input("Presione una tecla para continuar...")
 
         elif opcion == 2:
 
@@ -140,17 +147,20 @@ if salir == 1:
                     continuar = 3
                 else:
                     print("Opcion Incorrecta")
+                    input("Presione una tecla para continuar...")
                     # Se regresa al ciclo
                     continuar = 2
         elif opcion == 3:
 
-            print("Saliendo")
+            input("Presione una tecla para continuar...")
+            
             # Se cierra ciclo para salir del programa
             continuar = 0
             salir = 0
         else:
             print("Opcion Incorrecta")
-            print("No llegué hasta acá")
+            input("Presione una tecla para continuar...")
+           
 else:
     # Salir del Programa
     salir = 0

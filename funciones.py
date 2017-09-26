@@ -15,6 +15,7 @@ def menu():
             opcion = int(input("Ingrese una Opcion: "))
         except ValueError:
             print("Ingrese una opcion valida, solo un numero")
+            input("Ingrese una tecla para continuar...")
     return opcion
 
 
@@ -33,6 +34,8 @@ def sub_menu_num():
             opcion = int(input("Ingrese una Opcion: "))
         except ValueError:
             print("Ingrese una opcion valida, solo un numero")
+            input("Ingrese una tecla para continuar...")
+            os.system("cls")
     return opcion
 
 
@@ -41,6 +44,7 @@ def sub_menu_let():
     os.system("cls")
     opcion = 0
     while opcion == 0:
+        
         try:
             print("Selecciona una opción")
             print("1 - Palabra mas Larga")
@@ -50,6 +54,8 @@ def sub_menu_let():
             opcion = int(input("Ingrese una Opcion: "))
         except ValueError:
             print("Ingrese una opcion valida, solo un numero")
+            input("Ingrese una tecla para continuar...")
+            os.system("cls")
     return opcion
 
 
@@ -68,6 +74,8 @@ def solicitar_cadena():
 
         except ValueError:
             print("No ingreso una cadena..")
+            input("Ingrese una tecla para continuar...")
+            
     return cadena
 
 
@@ -75,13 +83,17 @@ def solicitar_cadena():
 def opciones_submenu():
     opcion = 0
     while opcion == 0:
+        
         try:
             print("1 - Continuar")
             print("2 - Ir al menú")
             print("3 - Ir al menú principal")
             opcion = int(input("¿Quiere continuar operando?: "))
+            os.system("cls")
         except ValueError:
             print("Ingrese una opcion valida, solo un numero")
+            input("Ingrese una tecla para continuar...")
+            os.system("cls")
     return opcion
 
 
