@@ -112,7 +112,7 @@ if salir == 1:
                         # Se piden parametros filtrados por excepcion
                         valor1 = funciones.solicitar_cadena()
 
-                        parametro_1 = funciones.palabraMasLargaCantidadDeLetras(valor1)
+                        parametro_1 = funciones.palabr_mas_larga(valor1)
                         funciones.imprimir(parametro_1)
                         # Sub menu ciclo
                         continuar = funciones.opciones_submenu()
@@ -153,14 +153,14 @@ if salir == 1:
         elif opcion == 3:
 
             input("Presione una tecla para continuar...")
-            
+
             # Se cierra ciclo para salir del programa
             continuar = 0
             salir = 0
         else:
             print("Opcion Incorrecta")
             input("Presione una tecla para continuar...")
-           
+
 else:
     # Salir del Programa
     salir = 0

@@ -58,31 +58,10 @@ def sub_menu_let():
     return opcion
 
 
-# Se pide el ingreso de una cadena, si solo es un entero no se considera.
-def solicitar_cadena():
-    cadena = ""
-    while cadena == "":
-        try:
-            cadena = input("Ingrese una cadena de texto :")
-            try:
-                cadena = int(cadena)
-                print("No se puede considerar la operación con solo numeros")
-                cadena = ""
-            except ValueError:
-                cadena = cadena
-
-        except ValueError:
-            print("No ingreso una cadena..")
-            input("Ingrese una tecla para continuar...")
-            
-    return cadena
-
-
 # opciones submenu, devuelve un entero sin excepcion
 def opciones_submenu():
     opcion = 0
     while opcion == 0:
-        
         try:
             print("1 - Continuar")
             print("2 - Ir al menú")
@@ -96,33 +75,55 @@ def opciones_submenu():
     return opcion
 
 
+# Se pide el ingreso de una cadena, si solo es un entero no se considera.
+def solicitar_cadena():
+    cadena = ""
+    while cadena == "":
+        try:
+            cadena = input("Ingrese una cadena de texto :")
+            try:
+                cadena = int(cadena)
+                print("No se puede considerar la operación con solo numeros")
+                cadena = ""
+            except ValueError:
+                cadena = cadena
+        except ValueError:
+            print("No ingreso una cadena..")
+            input("Ingrese una tecla para continuar...")
+    return cadena
+
+
+# Limpiador de String
+def armar_cadena(texto):
+    reemplazar = texto.maketrans(",;.", "   ")
+    lista_de_palabras = texto.translate(reemplazar).lower().split()
+    return lista_de_palabras
+
+
 # Indicador de la o las palabras mas larga y contador de sus caracteres.
 # Se ingresan un String "frase".
 '''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
 de la cantidad de letras de la o las palabras.'''
 
 
-def palabraMasLargaCantidadDeLetras(valor1):
-    frase = valor1
-    cantidadDeLetras = 0
-    listaLarga = []
-    reemplazar = frase.maketrans(",;.", "   ")
-    listaDePalabras = frase.translate(reemplazar).lower().split()
-    palabraMasLarga = listaDePalabras[0]
-    listaLarga.append(palabraMasLarga)
-    for palabra in listaDePalabras:
-        if len(palabraMasLarga) == len(palabra) and palabraMasLarga != palabra:
-            listaLarga.append(palabra)
-        elif len(palabraMasLarga) < len(palabra):
-            palabraMasLarga = palabra
-            del listaLarga[:]
-            listaLarga.append(palabraMasLarga)
-    for cantidad in listaLarga:
-        if cantidadDeLetras < len(cantidad):
-            cantidadDeLetras = len(cantidad)
+def palabra_mas_larga(lista_de_palabras):
+    cantidad_de_letras = 0
+    lista_larga = []
+    palabra_mas_larga = lista_de_palabras[0]
+    lista_larga.append(palabra_mas_larga)
+    for palabra in lista_de_palabras:
+        if len(palabra_mas_larga) == len(palabra) and palabra_mas_larga != palabra:
+            lista_larga.append(palabra)
+        elif len(palabra_mas_larga) < len(palabra):
+            palabra_mas_larga = palabra
+            del lista_larga[:]
+            lista_larga.append(palabra_mas_larga)
+    for cantidad in lista_larga:
+        if cantidad_de_letras < len(cantidad):
+            cantidad_de_letras = len(cantidad)
 
     mensaje = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(
-        listaLarga, cantidadDeLetras)
+        lista_larga, cantidad_de_letras)
     return mensaje
 
 
@@ -132,16 +133,10 @@ y devuelve un string
 '''
 
 
-def string_corto(valor1):
-    cadena = valor1
-    outside = "  "
-    inside = ".,;"
-    trans = cadena.maketrans(".,;!", "    ")
-    cadena = cadena.translate(trans)
-    lista_cadena = cadena.split()
-    palabra_corta = lista_cadena[0]
+def string_corto(lista_de_palabras):
+    palabra_corta = lista_de_palabras[0]
     lista_auxiliar = []
-    for i in lista_cadena:
+    for i in lista_de_palabras:
         if len(palabra_corta) > len(i):
             del lista_auxiliar[::]
             palabra_corta = i
@@ -161,63 +156,53 @@ def string_corto(valor1):
 y devuelve un string'''
 
 
-def contar_cadena(valor1):
-    cadena = valor1
-    trans = cadena.maketrans(".,;!", "    ")
-    cadena = cadena.translate(trans)
-    lista_cadena = cadena.split()
-    cantidad_palabras = len(lista_cadena)
+def contar_cadena(lista_de_palabras):
+    cantidad_palabras = len(lista_de_palabras)
     mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
-
     return mensaje
 
 
 # Division por resta.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
-def division(valor1, valor2):
-    valorA = int(valor1)
-    valorB = int(valor2)
-
+def division(dividendo, divisor):
+    dividendo = int(dividendo)
+    divisor = int(divisor)
     cociente = 0
     contadorDeDecimales = 0
     porMenosUno = False
-    mensaje = ""
-    if valorA < 0 or valorB < 0:
+    if dividendo < 0 or divisor < 0:
         porMenosUno = True
-    valorA = abs(valorA)
-    valorB = abs(valorB)
-    if valorB != 0:
-        if valorA == 0:
-            while valorA >= valorB:
-                valorA -= valorB
+    dividendo = abs(dividendo)
+    divisor = abs(divisor)
+    if divisor != 0:
+        if dividendo == 0:
+            while dividendo >= divisor:
+                dividendo -= divisor
                 cociente += 1
-            resto = valorA
-        elif valorA <= valorB and valorB % valorA == 0:
-            while valorB >= valorA:
-                valorB += -valorA
+            resto = dividendo
+        elif dividendo <= divisor and divisor % dividendo == 0:
+            while divisor >= dividendo:
+                divisor -= dividendo
                 cociente += 1
-            resto = valorB
+            resto = divisor
             if porMenosUno == True:
                 cociente = -cociente
             cociente = 1 / cociente
         else:
-            while valorA <= valorB:
-                valorA = valorA * 10
+            while dividendo <= divisor:
+                dividendo = dividendo * 10
                 contadorDeDecimales += 1
-            while valorA >= valorB:
-                valorA -= valorB
+            while dividendo >= divisor:
+                dividendo -= divisor
                 cociente += 1
-            resto = valorA
+            resto = dividendo
             if porMenosUno == True:
                 cociente = -cociente
             cociente = cociente / (10 ** contadorDeDecimales)
     else:
         mensaje = "No se puede dividir por 0"
-        resto = ""
-        cociente = ""
         return mensaje
-
     mensaje = "La division es {} y el resto {}.".format(cociente, resto)
     return mensaje
 
@@ -225,36 +210,36 @@ def division(valor1, valor2):
 # Multiplicacion por suma.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
-def multiplicacion(valor1, valor2):
-    valorA = int(valor1)
-    valorB = int(valor2)
+def multiplicacion(multiplicando, multiplicador):
+    multiplicando = int(multiplicando)
+    multiplicador = int(multiplicador)
     suma = 0
-    if valorA < 0 and valorB < 0 or valorA > 0 and valorB > 0:
-        if valorA < 0 and valorB < 0:
-            valorA = -valorA
-            valorB = -valorB
-        if valorA <= valorB:
-            for i in range(0, valorA):
-                suma += valorB
-        elif valorA > valorB:
-            for i in range(0, valorB):
-                suma += valorA
-    elif valorA < 0:
-        if abs(valorA) < valorB:
-            for i in range(valorA, 0):
-                suma += valorB
+    if multiplicando < 0 and multiplicador < 0 or multiplicando > 0 and multiplicador > 0:
+        if multiplicando < 0 and multiplicador < 0:
+            multiplicando = -multiplicando
+            multiplicador = -multiplicador
+        if multiplicando <= multiplicador:
+            for i in range(0, multiplicando):
+                suma += multiplicador
+        elif multiplicando > multiplicador:
+            for i in range(0, multiplicador):
+                suma += multiplicando
+    elif multiplicando < 0:
+        if abs(multiplicando) < multiplicador:
+            for i in range(multiplicando, 0):
+                suma += multiplicador
             suma = -suma
         else:
-            for i in range(0, valorB):
-                suma += valorA
+            for i in range(0, multiplicador):
+                suma += multiplicando
     else:
-        if abs(valorB) < valorA:
-            for i in range(valorB, 0):
-                suma += valorA
+        if abs(multiplicador) < multiplicando:
+            for i in range(multiplicador, 0):
+                suma += multiplicando
             suma = -suma
         else:
-            for i in range(0, valorA):
-                suma += valorB
+            for i in range(0, multiplicando):
+                suma += multiplicador
     mensaje = "La multiplicacion es " + str(suma)
     return mensaje
 
@@ -263,23 +248,23 @@ def multiplicacion(valor1, valor2):
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
 
-def potencias(valor1, valor2):
-    valorA = int(valor1)
-    valorB = int(valor2)
+def potencias(base, exponente):
+    base = int(base)
+    exponente = int(exponente)
     multp = 1
-    if valorA != 0 and valorB != 0:
-        if valorA > 0 and valorB > 0:
-            for i in range(0, valorB):
-                multp = multp * valorA
-        elif valorB < 0:
-            for i in range(valorB, 0):
-                multp = multp * valorA
+    if base != 0 and exponente != 0:
+        if base > 0 and exponente > 0:
+            for i in range(0, exponente):
+                multp = multp * base
+        elif exponente < 0:
+            for i in range(exponente, 0):
+                multp = multp * base
             multp = 1 / multp
-        elif valorA < 0:
-            for i in range(0, valorB):
-                multp = multp * valorA
+        elif base < 0:
+            for i in range(0, exponente):
+                multp = multp * base
     else:
-        if valorA == valorB == 0:
+        if base == exponente == 0:
             mensaje = "La base y el exponente no pueden ser 0 a la vez."
             return mensaje
         multp = 0
