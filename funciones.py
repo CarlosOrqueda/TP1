@@ -44,7 +44,6 @@ def sub_menu_let():
     os.system("cls")
     opcion = 0
     while opcion == 0:
-        
         try:
             print("Selecciona una opción")
             print("1 - Palabra mas Larga")
