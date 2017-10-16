@@ -90,13 +90,14 @@ while salir==False or menu==2:
                 #print("pido valores")
                 menu=funciones.opcion_submenu()
             elif opcion==4:
-                continuar=0
+                menu=0
                 #salir=0
                             
         
     elif opcion==3:
         #Sale de el programa
-        print("Saliendo")
+        print("Saliendo...")
+        input("Presione una tecla para continuar...")
         salir=True
         menu=0
             
