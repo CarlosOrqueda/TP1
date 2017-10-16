@@ -201,9 +201,11 @@ def division(dividendo, divisor):
         if dividendo == 0:
             resto = dividendo
         elif dividendo <= divisor:
+            while dividendo <= divisor:
+                dividendo = dividendo * 10
             while dividendo >= divisor:
                 dividendo -= divisor
-                cociente += 1
+                cociente = 0
             resto = dividendo
         else:
             while dividendo >= divisor:
