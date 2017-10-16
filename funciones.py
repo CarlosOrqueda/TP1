@@ -257,16 +257,9 @@ def potencias(base, exponente):
     positivo=False
     if base != 0 and exponente != 0:
         if base2 < 0 and exponente % 2 == 0:
-        
             positivo = True
-        #elif exponente%2==0:
-        #    positivo=False
-        if exponente < base:
-            for i in range(0, exponente):
-                multp *= base
-        else:
-            for i in range(0, base):
-                multp *= exponente
+        for i in range(0, exponente):
+            multp *= base
         if exponente_negativo:
             multp = 1 / multp
             if exponente_neg%2!=0:
