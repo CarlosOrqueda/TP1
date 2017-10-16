@@ -209,8 +209,8 @@ def division(dividendo, divisor):
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-    if por_menos_uno:
-        cociente = -cociente
+        if por_menos_uno:
+            cociente = -cociente
     else:
         mensaje = "No se puede dividir por 0"
         return mensaje
