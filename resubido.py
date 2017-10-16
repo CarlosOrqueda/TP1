@@ -276,14 +276,16 @@ def potencias(valor1, valor2):
 # Se piden parametros enteros sin excepcion para las funciones con enteros
 
 
-def solicitud():
+def solicitud(mensaje_1, mensaje_2):
     valor_1 = ""
     valor_2 = ""
     while valor_1 == "" and valor_2 == "":
         try:
-            valor_1 = int(input("Ingrese un Parametro: "))
+            mensaje="Ingrese " + mensaje_1+": "
+            mensaje_2="Ingrese "+ mensaje_2+": "
+            valor_1 = int(input(mensaje))
             try:
-                valor_2 = int(input("Ingrese un Parametro: "))
+                valor_2 = int(input(mensaje_2 ))
             except ValueError:
                 print("Ingrese un valor valido, solo un numero")
                 valor_1 = ""
@@ -317,7 +319,12 @@ def opcion_submenu():
             input("Ingrese una tecla para continuar...")
             os.system("cls")
     return opcion
-##############################################3
+##############################################
+
+
+
+
+
 salir=False
 while salir==False or continuar==2:
     
@@ -328,16 +335,38 @@ while salir==False or continuar==2:
         while continuar==1:
             opcion=sub_menu_num()
             if opcion==1:
-                num_1, num_2=solicitud()
-                print("pido valores")
+                mensaje_1=str("un numero")
+                mensaje_2=str("un numero")
+                num_1, num_2=solicitud(mensaje_1, mensaje_2)
+                producto=multiplicacion(num_1,num_2)
+                imprimir(producto)
+                #print("pido valores")
                 continuar=opcion_submenu()
             elif opcion==2:
-                num_1, num_2=solicitud()
-                print("pido valores")
+                mensaje_1=str("un dividendo")
+                mensaje_2=str("un divisor")
+                dividendo, divisor=solicitud(mensaje_1, mensaje_2)
+                try:                 
+                    cociente=division(dividendo, divisor)
+                    imprimir(cociente)
+                except:
+                    mensaje=division(dividendo,divisor)
+                    print(mensaje)
+                    continuar=opcion_submenu()
+                #print("pido valores")
                 continuar=opcion_submenu()
             elif opcion==3:
-                num_1, num_2=solicitud()
-                print("pido valores")
+                mensaje_1=str("una base")
+                mensaje_2=str("un exponente")
+                base,exponente=solicitud(mensaje_1, mensaje_2)
+                try:  
+                    potencia=potencia(base,exponente)
+                    imprimir(potencia)
+                except:
+                    mensaje =potencias(base,exponente)
+                    print(mensaje)
+                    continuar=opcion_submenu()
+                #print("pido valores")
                 continuar=opcion_submenu()
             elif opcion==4:
                 #opcion=1
@@ -350,18 +379,21 @@ while salir==False or continuar==2:
             opcion=sub_menu_let()
             if opcion==1:
                 cadena=solicitar_cadena()
+                cadena=palabraMasLargaCantidadDeLetras(cadena)
                 imprimir(cadena)
-                print("pido valores")
+                #print("pido valores")
                 continuar=opcion_submenu()
             elif opcion==2:
                 cadena=solicitar_cadena()
+                cadena=string_corto(cadena)
                 imprimir(cadena)
-                print("pido valores")
+                #print("pido valores")
                 continuar=opcion_submenu()
             elif opcion==3:
                 cadena=solicitar_cadena()
+                cadena=contar_cadena(cadena)
                 imprimir(cadena)
-                print("pido valores")
+                #print("pido valores")
                 continuar=opcion_submenu()
             elif opcion==4:
                 continuar=0
