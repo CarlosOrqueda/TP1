@@ -268,16 +268,22 @@ def multiplicacion(multiplicando, multiplicador):
 
 def potencias(base, exponente):
 
+    exponente_negativo = False
     multp = 1
+    if exponente < 0:
+        exponente_negativo = True
+    base = abs(base)
+    exponente = abs(exponente)
+
     if base != 0 and exponente != 0:
-        if base > 0 and exponente > 0:
-            if exponente < base:
-                for i in range(0, exponente):
-                    multp *= base
-            else:
-                for i in range(0, base):
-                    multp *= exponente
-        elif exponente < 0:
+        #if base > 0 and exponente > 0:
+        if exponente < base:
+            for i in range(0, exponente):
+                multp *= base
+        else:
+            for i in range(0, base):
+                multp *= exponente
+        """elif exponente < 0:
             if abs(exponente) < base:
                 for i in range(exponente, 0):
                     multp *= base
@@ -287,7 +293,9 @@ def potencias(base, exponente):
             multp = 1 / multp
         elif base < 0:
             for i in range(0, exponente):
-                multp *= base
+                multp *= base"""
+        if exponente_negativo:
+            multp = 1 / multp
     else:
         if base == exponente == 0:
             mensaje = "La base y el exponente no pueden ser 0 a la vez."
