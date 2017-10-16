@@ -295,9 +295,8 @@ def solicitud(mensaje_1, mensaje_2):
     valor_2 = ""
     while valor_1 == "" and valor_2 == "":
         try:
-            mensaje="Ingrese " + mensaje_1+" "
-            mensaje_2="Ingrese "+ mensaje_2+" "
-            valor_1 = int(input(mensaje))
+            
+            valor_1 = int(input(mensaje_1))
             try:
                 valor_2 = int(input(mensaje_2 ))
             except ValueError:
