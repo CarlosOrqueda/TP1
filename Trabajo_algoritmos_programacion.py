@@ -13,46 +13,46 @@ import os
 salir=False
 while salir==False or continuar==2:
     
-    opcion=menu()
+    opcion=funciones.menu()
     
     if opcion==1:
         continuar=1
         while continuar==1:
-            opcion=sub_menu_num()
+            opcion=funciones.sub_menu_num()
             if opcion==1:
-                mensaje_1=str("un numero")
-                mensaje_2=str("un numero")
-                num_1, num_2=solicitud(mensaje_1, mensaje_2)
-                producto=multiplicacion(num_1,num_2)
-                imprimir(producto)
+                mensaje_1=str("un numero: ")
+                mensaje_2=str("un numero: ")
+                num_1, num_2=funciones.solicitud(mensaje_1, mensaje_2)
+                producto=funciones.multiplicacion(num_1,num_2)
+                funciones.imprimir(producto)
                 #print("pido valores")
-                continuar=opcion_submenu()
+                continuar=funciones.opcion_submenu()
             elif opcion==2:
-                mensaje_1=str("un dividendo")
-                mensaje_2=str("un divisor")
-                dividendo, divisor=solicitud(mensaje_1, mensaje_2)
+                mensaje_1=str("un dividendo: ")
+                mensaje_2=str("un divisor: ")
+                dividendo, divisor=funciones.solicitud(mensaje_1, mensaje_2)
                 try:                 
-                    cociente=division(dividendo, divisor)
-                    imprimir(cociente)
+                    cociente=funciones.division(dividendo, divisor)
+                    funciones.imprimir(cociente)
                 except:
-                    mensaje=division(dividendo,divisor)
+                    mensaje=funciones.division(dividendo,divisor)
                     print(mensaje)
-                    continuar=opcion_submenu()
+                    continuar=funciones.opcion_submenu()
                 #print("pido valores")
-                continuar=opcion_submenu()
+                continuar=funciones.opcion_submenu()
             elif opcion==3:
-                mensaje_1=str("una base")
-                mensaje_2=str("un exponente")
-                base,exponente=solicitud(mensaje_1, mensaje_2)
+                mensaje_1=str("una base: ")
+                mensaje_2=str("un exponente: ")
+                base,exponente=funciones.solicitud(mensaje_1, mensaje_2)
                 try:  
-                    potencia=potencia(base,exponente)
+                    potencia=funciones.potencia(base,exponente)
                     imprimir(potencia)
                 except:
-                    mensaje =potencias(base,exponente)
+                    mensaje =funciones.potencias(base,exponente)
                     print(mensaje)
-                    continuar=opcion_submenu()
+                    continuar=funciones.opcion_submenu()
                 #print("pido valores")
-                continuar=opcion_submenu()
+                continuar=funciones.opcion_submenu()
             elif opcion==4:
                 #opcion=1
                 continuar=0
@@ -61,25 +61,28 @@ while salir==False or continuar==2:
     elif opcion==2:
         continuar=1
         while continuar==1:
-            opcion=sub_menu_let()
+            opcion=funciones.sub_menu_let()
             if opcion==1:
-                cadena=solicitar_cadena()
-                cadena=palabraMasLargaCantidadDeLetras(cadena)
-                imprimir(cadena)
+                cadena=funciones.solicitar_cadena()
+                cadena=funciones.armar_cadena(cadena)
+                cadena=funciones.palabra_mas_larga(cadena)
+                funciones.imprimir(cadena)
                 #print("pido valores")
-                continuar=opcion_submenu()
+                continuar=funciones.opcion_submenu()
             elif opcion==2:
-                cadena=solicitar_cadena()
-                cadena=string_corto(cadena)
-                imprimir(cadena)
+                cadena=funciones.solicitar_cadena()
+                cadena=funciones.armar_cadena(cadena)
+                cadena=funciones.string_corto(cadena)
+                funciones.imprimir(cadena)
                 #print("pido valores")
-                continuar=opcion_submenu()
+                continuar=funciones.opcion_submenu()
             elif opcion==3:
-                cadena=solicitar_cadena()
-                cadena=contar_cadena(cadena)
-                imprimir(cadena)
+                cadena=funciones.solicitar_cadena()
+                cadena=funciones.armar_cadena(cadena)
+                cadena=funciones.contar_cadena(cadena)
+                funciones.imprimir(cadena)
                 #print("pido valores")
-                continuar=opcion_submenu()
+                continuar=funciones.opcion_submenu()
             elif opcion==4:
                 continuar=0
                 #salir=0
