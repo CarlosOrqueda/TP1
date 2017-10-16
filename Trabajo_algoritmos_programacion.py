@@ -11,14 +11,17 @@ import os
 #Declaro variable de inicio
 
 salir=False
-while salir==False or continuar==2:
-    
+while salir==False or menu==2:
+    #si menu=2-vuelve al menú principal
+    #si menu=1-vuelve al menu de letras o numerico segun corresponda
     opcion=funciones.menu()
     
     if opcion==1:
-        continuar=1
-        while continuar==1:
+        menu=1
+        while menu==1:
+            #Entra al menu numerico
             opcion=funciones.sub_menu_num()
+            #Selecciona opcion del menu numerico
             if opcion==1:
                 mensaje_1=str("un numero: ")
                 mensaje_2=str("un numero: ")
@@ -26,7 +29,7 @@ while salir==False or continuar==2:
                 producto=funciones.multiplicacion(num_1,num_2)
                 funciones.imprimir(producto)
                 #print("pido valores")
-                continuar=funciones.opcion_submenu()
+                menu=funciones.opcion_submenu()
             elif opcion==2:
                 mensaje_1=str("un dividendo: ")
                 mensaje_2=str("un divisor: ")
@@ -37,9 +40,9 @@ while salir==False or continuar==2:
                 except:
                     mensaje=funciones.division(dividendo,divisor)
                     print(mensaje)
-                    continuar=funciones.opcion_submenu()
+                    menu=funciones.opcion_submenu()
                 #print("pido valores")
-                continuar=funciones.opcion_submenu()
+                menu=funciones.opcion_submenu()
             elif opcion==3:
                 mensaje_1=str("una base: ")
                 mensaje_2=str("un exponente: ")
@@ -50,49 +53,53 @@ while salir==False or continuar==2:
                 except:
                     mensaje =funciones.potencias(base,exponente)
                     print(mensaje)
-                    continuar=funciones.opcion_submenu()
+                    menu=funciones.opcion_submenu()
                 #print("pido valores")
-                continuar=funciones.opcion_submenu()
+                menu=funciones.opcion_submenu()
             elif opcion==4:
                 #opcion=1
-                continuar=0
+                menu=0
                 #salir=0
                 #continuar=1
     elif opcion==2:
-        continuar=1
-        while continuar==1:
+        
+        menu=1
+        while menu==1:
+            #Entra al menu de cadenas de texto
             opcion=funciones.sub_menu_let()
+            #Selecciona accion
             if opcion==1:
                 cadena=funciones.solicitar_cadena()
                 cadena=funciones.armar_cadena(cadena)
                 cadena=funciones.palabra_mas_larga(cadena)
                 funciones.imprimir(cadena)
                 #print("pido valores")
-                continuar=funciones.opcion_submenu()
+                menu=funciones.opcion_submenu()
             elif opcion==2:
                 cadena=funciones.solicitar_cadena()
                 cadena=funciones.armar_cadena(cadena)
                 cadena=funciones.string_corto(cadena)
                 funciones.imprimir(cadena)
                 #print("pido valores")
-                continuar=funciones.opcion_submenu()
+                menu=funciones.opcion_submenu()
             elif opcion==3:
                 cadena=funciones.solicitar_cadena()
                 cadena=funciones.armar_cadena(cadena)
                 cadena=funciones.contar_cadena(cadena)
                 funciones.imprimir(cadena)
                 #print("pido valores")
-                continuar=funciones.opcion_submenu()
+                menu=funciones.opcion_submenu()
             elif opcion==4:
                 continuar=0
                 #salir=0
                             
         
     elif opcion==3:
+        #Sale de el programa
         print("Saliendo")
         salir=True
-        continuar=0
+        menu=0
             
     else:
-        print("No deberia llegar acá")
+        print("No deberia llegar nunca acá")
         
