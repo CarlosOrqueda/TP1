@@ -178,7 +178,7 @@ def contar_cadena(lista_de_palabras):
     mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
     return mensaje
 
-def cambio_de_resultado(num1,num2):
+def cambio_de_resultado(num1="",num2=""):
     boolean = False
     if num1 < 0 or num2 < 0:
         boolean = True
