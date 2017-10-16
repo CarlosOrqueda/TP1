@@ -23,16 +23,16 @@ while salir==False or menu==2:
             opcion=funciones.sub_menu_num()
             #Selecciona opcion del menu numerico
             if opcion==1:
-                mensaje_1=str("un numero: ")
-                mensaje_2=str("un numero: ")
+                mensaje_1=str("Ingrese un numero: ")
+                mensaje_2=str("Ingrese un numero: ")
                 num_1, num_2=funciones.solicitud(mensaje_1, mensaje_2)
                 producto=funciones.multiplicacion(num_1,num_2)
                 funciones.imprimir(producto)
                 #print("pido valores")
                 menu=funciones.opcion_submenu()
             elif opcion==2:
-                mensaje_1=str("un dividendo: ")
-                mensaje_2=str("un divisor: ")
+                mensaje_1=str("Ingrese un dividendo: ")
+                mensaje_2=str("Ingrese un divisor (No se puede dividir por cero): ")
                 dividendo, divisor=funciones.solicitud(mensaje_1, mensaje_2)
                 try:                 
                     cociente=funciones.division(dividendo, divisor)
@@ -44,8 +44,8 @@ while salir==False or menu==2:
                 #print("pido valores")
                 menu=funciones.opcion_submenu()
             elif opcion==3:
-                mensaje_1=str("una base: ")
-                mensaje_2=str("un exponente: ")
+                mensaje_1=str("Ingrese una base: ")
+                mensaje_2=str("Ingrese un exponente: ")
                 base,exponente=funciones.solicitud(mensaje_1, mensaje_2)
                 try:  
                     potencia=funciones.potencia(base,exponente)
