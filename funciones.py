@@ -186,10 +186,12 @@ def division(dividendo, divisor):
 
     cociente = 0
     por_menos_uno = False
+
     if dividendo < 0 or divisor < 0:
         por_menos_uno = True
     dividendo = abs(dividendo)
     divisor = abs(divisor)
+
     if divisor != 0:
         if dividendo == 0:
             resto = dividendo
@@ -198,15 +200,17 @@ def division(dividendo, divisor):
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-            if por_menos_uno:
-                cociente = -cociente
+            """if por_menos_uno:
+                cociente = -cociente"""
         else:
             while dividendo >= divisor:
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-            if por_menos_uno:
-                cociente = -cociente
+            """if por_menos_uno:
+                cociente = -cociente"""
+    if por_menos_uno:
+        cociente = -cociente
     else:
         mensaje = "No se puede dividir por 0"
         return mensaje
@@ -220,7 +224,9 @@ def division(dividendo, divisor):
 def multiplicacion(multiplicando, multiplicador):
 
     suma = 0
-    if multiplicando < 0:
+    por_menos_uno = False
+
+    """if multiplicando < 0:
         if abs(multiplicando) < multiplicador:
             for i in range(multiplicando, 0):
                 suma += multiplicador
@@ -236,17 +242,22 @@ def multiplicacion(multiplicando, multiplicador):
         else:
             for i in range(0, multiplicando):
                 suma += multiplicador
+    else:"""
+
+    if multiplicador < 0 or multiplicando < 0:
+        por_menos_uno = True
+    multiplicador = abs(multiplicador)
+    multiplicando = abs(multiplicando)
+
+    if multiplicando <= multiplicador:
+        for i in range(0, multiplicando):
+            suma += multiplicador
+    #elif multiplicando > multiplicador:
     else:
-        multiplicando = abs(multiplicando)
-        multiplicador = abs(multiplicador)
-
-        if multiplicando <= multiplicador:
-            for i in range(0, multiplicando):
-                suma += multiplicador
-        elif multiplicando > multiplicador:
-            for i in range(0, multiplicador):
-                suma += multiplicando
-
+        for i in range(0, multiplicador):
+            suma += multiplicando
+    if por_menos_uno:
+        suma = -suma
     mensaje = "La multiplicacion es " + str(suma)
     return mensaje
 
