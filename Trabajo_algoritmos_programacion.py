@@ -40,7 +40,7 @@ while salir==False or menu==2:
                 except:
                     mensaje=funciones.division(dividendo,divisor)
                     print(mensaje)
-                    menu=funciones.opcion_submenu()
+                    
                 #print("pido valores")
                 menu=funciones.opcion_submenu()
             elif opcion==3:
