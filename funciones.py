@@ -248,8 +248,8 @@ def multiplicacion(multiplicando, multiplicador):
 
 
 def potencias(base, exponente):
-    base2 = base
-    exponente_negativo = cambio_de_resultado(abs(base2), exponente)
+    
+    exponente_negativo = cambio_de_resultado(abs(base), exponente)
     multp = 1
     base = abs(base)
     exponente = abs(exponente)
