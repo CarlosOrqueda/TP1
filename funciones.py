@@ -180,10 +180,11 @@ def contar_cadena(lista_de_palabras):
 
 
 def cambio_de_resultado(num1="", num2=""):
-    if not num1 < 0 and num2 < 0:
-        boolean = True
-    else:
+    boolean=False
+    if num1 < 0 and num2 < 0:
         boolean = False
+    elif num1<0 or num2<0:
+        boolean = True
     return boolean
 
 
@@ -209,11 +210,12 @@ def division(dividendo, divisor):
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-        if por_menos_uno:
-            cociente = -cociente
+        
     else:
         mensaje = "No se puede dividir por 0"
         return mensaje
+    if por_menos_uno:
+            cociente = -cociente
     mensaje = "La division es {} y el resto {}.".format(cociente, resto)
     return mensaje
 
