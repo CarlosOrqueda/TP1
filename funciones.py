@@ -74,6 +74,23 @@ def opciones_submenu():
             os.system("cls")
     return opcion
 
+def opcion_submenu():
+    opcion = 0
+    while opcion == 0 or opcion>=3:
+        
+        try:
+            print("1 - Continuar en este menú")
+            print("2 - Ir al menú Principal")
+            
+            opcion = int(input("¿Quiere continuar operando?: "))
+            os.system("cls")
+        except ValueError:
+            print("Ingrese una opcion valida, solo un numero")
+            input("Ingrese una tecla para continuar...")
+            os.system("cls")
+    return opcion
+
+
 
 # Se pide el ingreso de una cadena, si solo es un entero no se considera.
 def solicitar_cadena():
@@ -273,8 +290,8 @@ def potencias(base, exponente):
 
 
 # Se piden parametros enteros sin excepcion para las funciones con enteros
-
-
+#Solo tiene pocos cambios, por comodidad mas que nada.
+'''
 def solicitud():
     valor_1 = ""
     valor_2 = ""
@@ -292,6 +309,45 @@ def solicitud():
             valor_1 = ""
             valor_2 = ""
     return valor_1, valor_2
+'''
+
+def solicitud(mensaje_1, mensaje_2):
+    valor_1 = ""
+    valor_2 = ""
+    while valor_1 == "" and valor_2 == "":
+        try:
+            mensaje="Ingrese " + mensaje_1+": "
+            mensaje_2="Ingrese "+ mensaje_2+": "
+            valor_1 = int(input(mensaje))
+            try:
+                valor_2 = int(input(mensaje_2 ))
+            except ValueError:
+                print("Ingrese un valor valido, solo un numero")
+                valor_1 = ""
+                valor_2 = ""
+        except ValueError:
+            print("Ingrese un valor valido, solo un numero")
+            valor_1 = ""
+            valor_2 = ""
+    return valor_1, valor_2
+
+
+def opcion_submenu():
+    opcion = 0
+    while opcion == 0 or opcion>=3:
+        
+        try:
+            print("1 - Continuar en este menú")
+            print("2 - Ir al menú Principal")
+            
+            opcion = int(input("¿Quiere continuar operando?: "))
+            os.system("cls")
+        except ValueError:
+            print("Ingrese una opcion valida, solo un numero")
+            input("Ingrese una tecla para continuar...")
+            os.system("cls")
+    return opcion
+
 
 
 # Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto
