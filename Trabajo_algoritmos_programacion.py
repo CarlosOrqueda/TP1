@@ -53,7 +53,7 @@ while salir==False or menu==2:
                 except:
                     mensaje =funciones.potencias(base,exponente)
                     print(mensaje)
-                    menu=funciones.opcion_submenu()
+                    
                 #print("pido valores")
                 menu=funciones.opcion_submenu()
             elif opcion==4:
