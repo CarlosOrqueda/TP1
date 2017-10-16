@@ -183,40 +183,30 @@ def contar_cadena(lista_de_palabras):
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
 def division(dividendo, divisor):
-    dividendo = int(dividendo)
-    divisor = int(divisor)
+
     cociente = 0
-    contadorDeDecimales = 0
-    porMenosUno = False
+    por_menos_uno = False
     if dividendo < 0 or divisor < 0:
-        porMenosUno = True
+        por_menos_uno = True
     dividendo = abs(dividendo)
     divisor = abs(divisor)
     if divisor != 0:
         if dividendo == 0:
+            resto = dividendo
+        elif dividendo <= divisor:
             while dividendo >= divisor:
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-        elif dividendo <= divisor and divisor % dividendo == 0:
-            while divisor >= dividendo:
-                divisor -= dividendo
-                cociente += 1
-            resto = divisor
-            if porMenosUno == True:
+            if por_menos_uno:
                 cociente = -cociente
-            cociente = 1 / cociente
         else:
-            while dividendo <= divisor:
-                dividendo = dividendo * 10
-                contadorDeDecimales += 1
             while dividendo >= divisor:
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-            if porMenosUno == True:
+            if por_menos_uno:
                 cociente = -cociente
-            cociente = cociente / (10 ** contadorDeDecimales)
     else:
         mensaje = "No se puede dividir por 0"
         return mensaje
@@ -228,20 +218,9 @@ def division(dividendo, divisor):
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
 def multiplicacion(multiplicando, multiplicador):
-    multiplicando = int(multiplicando)
-    multiplicador = int(multiplicador)
+
     suma = 0
-    if multiplicando < 0 and multiplicador < 0 or multiplicando > 0 and multiplicador > 0:
-        if multiplicando < 0 and multiplicador < 0:
-            multiplicando = -multiplicando
-            multiplicador = -multiplicador
-        if multiplicando <= multiplicador:
-            for i in range(0, multiplicando):
-                suma += multiplicador
-        elif multiplicando > multiplicador:
-            for i in range(0, multiplicador):
-                suma += multiplicando
-    elif multiplicando < 0:
+    if multiplicando < 0:
         if abs(multiplicando) < multiplicador:
             for i in range(multiplicando, 0):
                 suma += multiplicador
@@ -249,7 +228,7 @@ def multiplicacion(multiplicando, multiplicador):
         else:
             for i in range(0, multiplicador):
                 suma += multiplicando
-    else:
+    elif multiplicador < 0:
         if abs(multiplicador) < multiplicando:
             for i in range(multiplicador, 0):
                 suma += multiplicando
@@ -257,6 +236,17 @@ def multiplicacion(multiplicando, multiplicador):
         else:
             for i in range(0, multiplicando):
                 suma += multiplicador
+    else:
+        multiplicando = abs(multiplicando)
+        multiplicador = abs(multiplicador)
+
+        if multiplicando <= multiplicador:
+            for i in range(0, multiplicando):
+                suma += multiplicador
+        elif multiplicando > multiplicador:
+            for i in range(0, multiplicador):
+                suma += multiplicando
+
     mensaje = "La multiplicacion es " + str(suma)
     return mensaje
 
@@ -266,20 +256,27 @@ def multiplicacion(multiplicando, multiplicador):
 
 
 def potencias(base, exponente):
-    base = int(base)
-    exponente = int(exponente)
+
     multp = 1
     if base != 0 and exponente != 0:
         if base > 0 and exponente > 0:
-            for i in range(0, exponente):
-                multp = multp * base
+            if exponente < base:
+                for i in range(0, exponente):
+                    multp *= base
+            else:
+                for i in range(0, base):
+                    multp *= exponente
         elif exponente < 0:
-            for i in range(exponente, 0):
-                multp = multp * base
+            if abs(exponente) < base:
+                for i in range(exponente, 0):
+                    multp *= base
+            else:
+                for i in range(0, base):
+                    multp *= exponente
             multp = 1 / multp
         elif base < 0:
             for i in range(0, exponente):
-                multp = multp * base
+                multp *= base
     else:
         if base == exponente == 0:
             mensaje = "La base y el exponente no pueden ser 0 a la vez."
@@ -291,33 +288,15 @@ def potencias(base, exponente):
 
 # Se piden parametros enteros sin excepcion para las funciones con enteros
 #Solo tiene pocos cambios, por comodidad mas que nada.
-'''
-def solicitud():
-    valor_1 = ""
-    valor_2 = ""
-    while valor_1 == "" and valor_2 == "":
-        try:
-            valor_1 = int(input("Ingrese un Parametro: "))
-            try:
-                valor_2 = int(input("Ingrese un Parametro: "))
-            except ValueError:
-                print("Ingrese un valor valido, solo un numero")
-                valor_1 = ""
-                valor_2 = ""
-        except ValueError:
-            print("Ingrese un valor valido, solo un numero")
-            valor_1 = ""
-            valor_2 = ""
-    return valor_1, valor_2
-'''
+
 
 def solicitud(mensaje_1, mensaje_2):
     valor_1 = ""
     valor_2 = ""
     while valor_1 == "" and valor_2 == "":
         try:
-            mensaje="Ingrese " + mensaje_1+": "
-            mensaje_2="Ingrese "+ mensaje_2+": "
+            mensaje="Ingrese " + mensaje_1+" "
+            mensaje_2="Ingrese "+ mensaje_2+" "
             valor_1 = int(input(mensaje))
             try:
                 valor_2 = int(input(mensaje_2 ))
