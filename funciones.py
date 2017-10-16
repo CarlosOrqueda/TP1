@@ -178,6 +178,13 @@ def contar_cadena(lista_de_palabras):
     mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
     return mensaje
 
+def cambio_de_resultado(num1,num2):
+    boolean = False
+    if num1 < 0 or num2 < 0:
+        boolean = True
+    return boolean
+
+
 
 # Division por resta.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
@@ -185,10 +192,7 @@ def contar_cadena(lista_de_palabras):
 def division(dividendo, divisor):
 
     cociente = 0
-    por_menos_uno = False
-
-    if dividendo < 0 or divisor < 0:
-        por_menos_uno = True
+    por_menos_uno = cambio_de_resultado(dividendo,divisor)
     dividendo = abs(dividendo)
     divisor = abs(divisor)
 
@@ -200,15 +204,11 @@ def division(dividendo, divisor):
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-            """if por_menos_uno:
-                cociente = -cociente"""
         else:
             while dividendo >= divisor:
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-            """if por_menos_uno:
-                cociente = -cociente"""
     if por_menos_uno:
         cociente = -cociente
     else:
@@ -224,35 +224,13 @@ def division(dividendo, divisor):
 def multiplicacion(multiplicando, multiplicador):
 
     suma = 0
-    por_menos_uno = False
-
-    """if multiplicando < 0:
-        if abs(multiplicando) < multiplicador:
-            for i in range(multiplicando, 0):
-                suma += multiplicador
-            suma = -suma
-        else:
-            for i in range(0, multiplicador):
-                suma += multiplicando
-    elif multiplicador < 0:
-        if abs(multiplicador) < multiplicando:
-            for i in range(multiplicador, 0):
-                suma += multiplicando
-            suma = -suma
-        else:
-            for i in range(0, multiplicando):
-                suma += multiplicador
-    else:"""
-
-    if multiplicador < 0 or multiplicando < 0:
-        por_menos_uno = True
+    por_menos_uno = cambio_de_resultado(multiplicando,multiplicador)
     multiplicador = abs(multiplicador)
     multiplicando = abs(multiplicando)
 
     if multiplicando <= multiplicador:
         for i in range(0, multiplicando):
             suma += multiplicador
-    #elif multiplicando > multiplicador:
     else:
         for i in range(0, multiplicador):
             suma += multiplicando
@@ -268,32 +246,19 @@ def multiplicacion(multiplicando, multiplicador):
 
 def potencias(base, exponente):
 
-    exponente_negativo = False
+    exponente_negativo = cambio_de_resultado(exponente)
     multp = 1
-    if exponente < 0:
-        exponente_negativo = True
+
     base = abs(base)
     exponente = abs(exponente)
 
     if base != 0 and exponente != 0:
-        #if base > 0 and exponente > 0:
         if exponente < base:
             for i in range(0, exponente):
                 multp *= base
         else:
             for i in range(0, base):
                 multp *= exponente
-        """elif exponente < 0:
-            if abs(exponente) < base:
-                for i in range(exponente, 0):
-                    multp *= base
-            else:
-                for i in range(0, base):
-                    multp *= exponente
-            multp = 1 / multp
-        elif base < 0:
-            for i in range(0, exponente):
-                multp *= base"""
         if exponente_negativo:
             multp = 1 / multp
     else:
