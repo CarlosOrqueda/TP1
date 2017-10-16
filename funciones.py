@@ -74,14 +74,15 @@ def opciones_submenu():
             os.system("cls")
     return opcion
 
+
 def opcion_submenu():
     opcion = 0
-    while opcion == 0 or opcion>=3:
-        
+    while opcion == 0 or opcion >= 3:
+
         try:
             print("1 - Continuar en este menú")
             print("2 - Ir al menú Principal")
-            
+
             opcion = int(input("¿Quiere continuar operando?: "))
             os.system("cls")
         except ValueError:
@@ -89,7 +90,6 @@ def opcion_submenu():
             input("Ingrese una tecla para continuar...")
             os.system("cls")
     return opcion
-
 
 
 # Se pide el ingreso de una cadena, si solo es un entero no se considera.
@@ -178,21 +178,21 @@ def contar_cadena(lista_de_palabras):
     mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
     return mensaje
 
-def cambio_de_resultado(num1="",num2=""):
-    boolean = False
-    if num1 < 0 or num2 < 0:
-        boolean = True
-    return boolean
 
+def cambio_de_resultado(num1="", num2=""):
+    if not num1 < 0 and num2 < 0:
+        boolean = True
+    else:
+        boolean = False
+    return boolean
 
 
 # Division por resta.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
 def division(dividendo, divisor):
-
     cociente = 0
-    por_menos_uno = cambio_de_resultado(dividendo,divisor)
+    por_menos_uno = cambio_de_resultado(dividendo, divisor)
     dividendo = abs(dividendo)
     divisor = abs(divisor)
 
@@ -222,9 +222,8 @@ def division(dividendo, divisor):
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
 def multiplicacion(multiplicando, multiplicador):
-
     suma = 0
-    por_menos_uno = cambio_de_resultado(multiplicando,multiplicador)
+    por_menos_uno = cambio_de_resultado(multiplicando, multiplicador)
     multiplicador = abs(multiplicador)
     multiplicando = abs(multiplicando)
 
@@ -245,7 +244,6 @@ def multiplicacion(multiplicando, multiplicador):
 
 
 def potencias(base, exponente):
-
     exponente_negativo = cambio_de_resultado(exponente)
     multp = 1
 
@@ -271,7 +269,7 @@ def potencias(base, exponente):
 
 
 # Se piden parametros enteros sin excepcion para las funciones con enteros
-#Solo tiene pocos cambios, por comodidad mas que nada.
+# Solo tiene pocos cambios, por comodidad mas que nada.
 
 
 def solicitud(mensaje_1, mensaje_2):
@@ -279,10 +277,10 @@ def solicitud(mensaje_1, mensaje_2):
     valor_2 = ""
     while valor_1 == "" and valor_2 == "":
         try:
-            
+
             valor_1 = int(input(mensaje_1))
             try:
-                valor_2 = int(input(mensaje_2 ))
+                valor_2 = int(input(mensaje_2))
             except ValueError:
                 print("Ingrese un valor valido, solo un numero")
                 valor_1 = ""
@@ -296,12 +294,12 @@ def solicitud(mensaje_1, mensaje_2):
 
 def opcion_submenu():
     opcion = 0
-    while opcion == 0 or opcion>=3:
-        
+    while opcion == 0 or opcion >= 3:
+
         try:
             print("1 - Continuar en este menú")
             print("2 - Ir al menú Principal")
-            
+
             opcion = int(input("¿Quiere continuar operando?: "))
             os.system("cls")
         except ValueError:
@@ -309,7 +307,6 @@ def opcion_submenu():
             input("Ingrese una tecla para continuar...")
             os.system("cls")
     return opcion
-
 
 
 # Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto
