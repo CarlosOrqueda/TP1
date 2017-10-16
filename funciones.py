@@ -212,7 +212,7 @@ def division(dividendo, divisor):
                 dividendo -= divisor
                 cociente += 1
             resto = dividendo
-        
+
     else:
         mensaje = "No se puede dividir por 0"
         return mensaje
@@ -248,13 +248,14 @@ def multiplicacion(multiplicando, multiplicador):
 
 
 def potencias(base, exponente):
-    exponente_negativo = cambio_de_resultado(exponente)
+    base2 = base
+    exponente_negativo = cambio_de_resultado(base, exponente)
     multp = 1
-
     base = abs(base)
     exponente = abs(exponente)
-
     if base != 0 and exponente != 0:
+        if base2 < 0 and exponente % 2 == 0:
+            positivo = True
         if exponente < base:
             for i in range(0, exponente):
                 multp *= base
@@ -263,6 +264,8 @@ def potencias(base, exponente):
                 multp *= exponente
         if exponente_negativo:
             multp = 1 / multp
+        elif positivo:
+            multp = abs(multp)
     else:
         if base == exponente == 0:
             mensaje = "La base y el exponente no pueden ser 0 a la vez."
