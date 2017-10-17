@@ -286,7 +286,7 @@ def potencia(base, exponente):
     exponente_negativo = cambio_de_resultado(abs(base), exponente)
     multp=1
     if base != 0 and exponente != 0:
-        #Esto es redundante con el else, no lo cambie. El metodo que dijeron ellos como
+        #Esto es redundante con el else, no lo cambie. El metodo que dijeron ellos
         #parece que no va.Parece devolver bien
         if abs(exponente) < base:
              for i in range(0, abs(exponente)):
