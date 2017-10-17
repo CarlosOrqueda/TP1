@@ -165,7 +165,7 @@ def string_corto(lista_de_palabras):
     palabras_cortas = str(lista_auxiliar)
     palabras_cortas_mensaje = "La/s palabra/s mas corta/s es/son {}, incluyendo numeros y tiene {} caracteres.".format(
         palabras_cortas, cantidad)
-    return palabras_cortas_mensaje  # palabras_cortas
+    return palabras_cortas_mensaje
 
 
 # Contador de palabras en una cadena.
@@ -257,9 +257,16 @@ def potencias(base, exponente):
     positivo=False
     if base != 0 and exponente != 0:
         if base2 < 0 and exponente % 2 == 0:
+        
             positivo = True
-        for i in range(0, exponente):
-            multp *= base
+        #elif exponente%2==0:
+        #    positivo=False
+        if exponente < base:
+            for i in range(0, exponente):
+                multp *= base
+        else:
+            for i in range(0, base):
+                multp *= exponente
         if exponente_negativo:
             multp = 1 / multp
             if exponente_neg%2!=0:
@@ -274,6 +281,35 @@ def potencias(base, exponente):
     mensaje = "La potencia es " + str(multp)
     return mensaje
 
+#Usar potencia
+def potencia(base, exponente):
+    exponente_negativo = cambio_de_resultado(abs(base), exponente)
+    multp=1
+    if base != 0 and exponente != 0:
+        #Esto es redundante con el else, no lo cambie. El metodo que dijeron ellos como
+        #parece que no va.Parece devolver bien
+        if abs(exponente) < base:
+             for i in range(0, abs(exponente)):
+                multp *= base
+        else:
+             for i in range(0, abs(exponente)):               
+               multp *= base
+            
+        if exponente_negativo:
+            multp = 1 / multp
+        
+        if base < 0 and exponente % 2 == 0:
+
+            multp = abs(multp)
+    elif exponente==0 and base!=0:
+        multp=1
+    else:
+        if base == exponente == 0:
+            mensaje = "La base y el exponente no pueden ser 0 a la vez."
+            return mensaje
+        multp = 0
+    mensaje = "La potencia es " + str(multp)
+    return mensaje
 
 # Se piden parametros enteros sin excepcion para las funciones con enteros
 # Solo tiene pocos cambios, por comodidad mas que nada.
