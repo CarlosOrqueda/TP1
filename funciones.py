@@ -180,10 +180,10 @@ def contar_cadena(lista_de_palabras):
 
 
 def cambio_de_resultado(num1="", num2=""):
-    boolean=False
+    boolean = False
     if num1 < 0 and num2 < 0:
         boolean = False
-    elif num1<0 or num2<0:
+    elif num1 < 0 or num2 < 0:
         boolean = True
     return boolean
 
@@ -217,7 +217,7 @@ def division(dividendo, divisor):
         mensaje = "No se puede dividir por 0"
         return mensaje
     if por_menos_uno:
-            cociente = -cociente
+        cociente = -cociente
     mensaje = "La division es {} y el resto {}.".format(cociente, resto)
     return mensaje
 
@@ -246,33 +246,19 @@ def multiplicacion(multiplicando, multiplicador):
 # Potencia por multiplicacion.
 # Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
 
-
 def potencias(base, exponente):
-    base2 = base
-    exponente_negativo = cambio_de_resultado(abs(base2), exponente)
+    exponente_negativo = cambio_de_resultado(abs(base), exponente)
     multp = 1
-    base = abs(base)
-    exponente_neg=exponente
-    exponente = abs(exponente)
-    positivo=False
+    positivo = False
     if base != 0 and exponente != 0:
-        if base2 < 0 and exponente % 2 == 0:
-        
+        if base < 0 and exponente % 2 == 0:
             positivo = True
-        #elif exponente%2==0:
-        #    positivo=False
-        if exponente < base:
-            for i in range(0, exponente):
-                multp *= base
-        else:
-            for i in range(0, base):
-                multp *= exponente
+        for i in range(0, abs(exponente)):
+            multp *= base
         if exponente_negativo:
             multp = 1 / multp
-            if exponente_neg%2!=0:
-                multp=-multp
-        elif positivo:
-            multp = abs(multp)
+            if positivo:
+                multp = abs(multp)
     else:
         if base == exponente == 0:
             mensaje = "La base y el exponente no pueden ser 0 a la vez."
@@ -281,28 +267,28 @@ def potencias(base, exponente):
     mensaje = "La potencia es " + str(multp)
     return mensaje
 
-#Usar potencia
+
+# Usar potencia
 def potencia(base, exponente):
     exponente_negativo = cambio_de_resultado(abs(base), exponente)
-    multp=1
+    multp = 1
     if base != 0 and exponente != 0:
-        #Esto es redundante con el else, no lo cambie. El metodo que dijeron ellos
-        #parece que no va.Parece devolver bien
+        # Esto es redundante con el else, no lo cambie. El metodo que dijeron ellos
+        # parece que no va.Parece devolver bien
         if abs(exponente) < base:
-             for i in range(0, abs(exponente)):
+            for i in range(0, abs(exponente)):
                 multp *= base
         else:
-             for i in range(0, abs(exponente)):               
-               multp *= base
-            
+            for i in range(0, abs(exponente)):
+                multp *= base
+
         if exponente_negativo:
             multp = 1 / multp
-        
-        if base < 0 and exponente % 2 == 0:
 
+        if base < 0 and exponente % 2 == 0:
             multp = abs(multp)
-    elif exponente==0 and base!=0:
-        multp=1
+    elif exponente == 0 and base != 0:
+        multp = 1
     else:
         if base == exponente == 0:
             mensaje = "La base y el exponente no pueden ser 0 a la vez."
@@ -310,6 +296,7 @@ def potencia(base, exponente):
         multp = 0
     mensaje = "La potencia es " + str(multp)
     return mensaje
+
 
 # Se piden parametros enteros sin excepcion para las funciones con enteros
 # Solo tiene pocos cambios, por comodidad mas que nada.
