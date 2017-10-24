@@ -144,12 +144,10 @@ def palabra_mas_larga(lista_de_palabras):
     return mensaje
 
 
-# Indicador de la o las palabras mas corta y contador de sus caracteres.
-'''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
+# Indica la o las palabras mas corta y contador de sus caracteres.
+'''Recibe el parametro, se transforma en una lista con la conversion necesaria
 y devuelve un string
 '''
-
-
 def string_corto(lista_de_palabras):
     palabra_corta = lista_de_palabras[0]
     lista_auxiliar = []
@@ -178,7 +176,7 @@ def contar_cadena(lista_de_palabras):
     mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
     return mensaje
 
-
+#Funcion para validar el cambio de signo en funciones de cálculo numerico, con variable booleana. 
 def cambio_de_resultado(num1="", num2=""):
     boolean = False
     if num1 < 0 and num2 < 0:
@@ -189,7 +187,8 @@ def cambio_de_resultado(num1="", num2=""):
 
 
 # Division por resta.
-# Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+# Recibe los parametros se opera y devuelve un string
+#En caso de no poder, regresa un msj correspondiente
 
 def division(dividendo, divisor):
     cociente = 0
@@ -223,7 +222,7 @@ def division(dividendo, divisor):
 
 
 # Multiplicacion por suma.
-# Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+# Recibe los parametros se opera y devuelve un string
 
 def multiplicacion(multiplicando, multiplicador):
     suma = 0
@@ -244,7 +243,7 @@ def multiplicacion(multiplicando, multiplicador):
 
 
 # Potencia por multiplicacion.
-# Recibe el parametro valor1, valor2, ambos se castean, se opera y devuelve un string
+# Recibe los parametros, ambos se castean, se opera y devuelve un string
 
 def potencias(base, exponente):
     exponente_negativo = cambio_de_resultado(abs(base), exponente)
@@ -297,11 +296,8 @@ def potencia(base, exponente):
     mensaje = "La potencia es " + str(multp)
     return mensaje
 
-
+#Funcion solicita valores para operaciones de cálculo
 # Se piden parametros enteros sin excepcion para las funciones con enteros
-# Solo tiene pocos cambios, por comodidad mas que nada.
-
-
 def solicitud(mensaje_1, mensaje_2):
     valor_1 = ""
     valor_2 = ""
@@ -321,7 +317,7 @@ def solicitud(mensaje_1, mensaje_2):
             valor_2 = ""
     return valor_1, valor_2
 
-
+#Selecciona la opcion de continuar en un menú o regresar al anterior.
 def opcion_submenu():
     opcion = 0
     while opcion == 0 or opcion >= 3:
@@ -340,7 +336,5 @@ def opcion_submenu():
 
 
 # Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto
-
-
 def imprimir(parametro_1="", parametro_2=""):
     print(parametro_1, parametro_2)
