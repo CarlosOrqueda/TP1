@@ -1,3 +1,5 @@
+#import funciones
+
 def menu_principal():
     print("1.Calculos numericos \n2.Tratamineto de String")
     opcion = int(input("Ingrese una opcion valida "))
