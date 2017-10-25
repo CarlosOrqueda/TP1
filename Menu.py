@@ -30,11 +30,11 @@ def menu_string():
     while opcion >= 5:
         opcion = int(input("Ingrese una opcion valida "))
     if opcion == 1:
-        palabra_corta()
+        string_corto()
     elif opcion == 2:
-        palabra_larga()
+        string_largo()
     elif opcion == 3:
-        cant_palabras()
+        cont_palabras()
     else:
         menu_principal()
 

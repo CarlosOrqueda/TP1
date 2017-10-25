@@ -1,4 +1,4 @@
-import os
+"""import os
 
 
 # opciones menu, devuelve un valor entero sin excepcion
@@ -109,40 +109,19 @@ def solicitar_cadena():
             input("Ingrese una tecla para continuar...")
     return cadena
 
+# Funcion para validar el cambio de signo en funciones de cálculo numerico, con variable booleana.
+def cambio_de_resultado(num1="", num2=""):
+    if num1 < 0 and num2 < 0:
+        return False
+    elif num1 < 0 or num2 < 0:
+        return True
+
 
 # Limpiador de String
 def armar_cadena(texto):
     reemplazar = texto.maketrans(",;.", "   ")
     lista_de_palabras = texto.translate(reemplazar).lower().split()
     return lista_de_palabras
-
-
-# Indicador de la o las palabras mas larga y contador de sus caracteres.
-# Se ingresan un String "frase".
-'''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
-de la cantidad de letras de la o las palabras.'''
-
-
-def palabra_mas_larga(lista_de_palabras):
-    cantidad_de_letras = 0
-    lista_larga = []
-    palabra_mas_larga = lista_de_palabras[0]
-    lista_larga.append(palabra_mas_larga)
-    for palabra in lista_de_palabras:
-        if len(palabra_mas_larga) == len(palabra) and palabra_mas_larga != palabra:
-            lista_larga.append(palabra)
-        elif len(palabra_mas_larga) < len(palabra):
-            palabra_mas_larga = palabra
-            del lista_larga[:]
-            lista_larga.append(palabra_mas_larga)
-    for cantidad in lista_larga:
-        if cantidad_de_letras < len(cantidad):
-            cantidad_de_letras = len(cantidad)
-
-    mensaje = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(
-        lista_larga, cantidad_de_letras)
-    return mensaje
-
 
 # Indica la o las palabras mas corta y contador de sus caracteres.
 '''Recibe el parametro, se transforma en una lista con la conversion necesaria
@@ -166,29 +145,26 @@ def string_corto(lista_de_palabras):
     return palabras_cortas_mensaje
 
 
-# Contador de palabras en una cadena.
-'''Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
-y devuelve un string'''
+#Funcion solicita valores para operaciones de cálculo
+# Se piden parametros enteros sin excepcion para las funciones con enteros
+def solicitud(mensaje_1, mensaje_2):
+    valor_1 = ""
+    valor_2 = ""
+    while valor_1 == "" and valor_2 == "":
+        try:
 
-
-def contar_cadena(lista_de_palabras):
-    cantidad_palabras = len(lista_de_palabras)
-    mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
-    return mensaje
-
-#Funcion para validar el cambio de signo en funciones de cálculo numerico, con variable booleana. 
-def cambio_de_resultado(num1="", num2=""):
-    boolean = False
-    if num1 < 0 and num2 < 0:
-        boolean = False
-    elif num1 < 0 or num2 < 0:
-        boolean = True
-    return boolean
-
-
-# Division por resta.
-# Recibe los parametros se opera y devuelve un string
-#En caso de no poder, regresa un msj correspondiente
+            valor_1 = int(input(mensaje_1))
+            try:
+                valor_2 = int(input(mensaje_2))
+            except ValueError:
+                print("Ingrese un valor valido, solo un numero")
+                valor_1 = ""
+                valor_2 = ""
+        except ValueError:
+            print("Ingrese un valor valido, solo un numero")
+            valor_1 = ""
+            valor_2 = ""
+    return valor_1, valor_2
 
 def division(dividendo, divisor):
     cociente = 0
@@ -220,6 +196,62 @@ def division(dividendo, divisor):
     mensaje = "La division es {} y el resto {}.".format(cociente, resto)
     return mensaje
 
+#Selecciona la opcion de continuar en un menú o regresar al anterior.
+def opcion_submenu():
+    opcion = 0
+    while opcion == 0 or opcion >= 3:
+
+        try:
+            print("1 - Continuar en este menú")
+            print("2 - Ir al menú Principal")
+
+            opcion = int(input("¿Quiere continuar operando?: "))
+            os.system("cls")
+        except ValueError:
+            print("Ingrese una opcion valida, solo un numero")
+            input("Ingrese una tecla para continuar...")
+            os.system("cls")
+    return opcion
+
+# Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto
+def imprimir(parametro_1="", parametro_2=""):
+    print(parametro_1, parametro_2)
+
+Contador de palabras en una cadena.
+Recibe el parametro valor1, se transforma en una lista con la conversion necesaria
+y devuelve un string
+
+def contar_cadena(lista_de_palabras):
+    cantidad_palabras = len(lista_de_palabras)
+    mensaje = "La cantidad de palabras en el texto es " + str(cantidad_palabras) + ",incluyendo numeros"
+    return mensaje"""
+
+
+# Indicador de la o las palabras mas larga y contador de sus caracteres.
+# Se ingresan un String "frase".
+'''La variable "listaLarga" devuelve un String de la o las palabras mas largas y "cantidadDeLetras" devuelve un String
+de la cantidad de letras de la o las palabras.'''
+
+
+def palabra_mas_larga(lista_de_palabras):
+    cantidad_de_letras = 0
+    lista_larga = []
+    palabra_mas_larga = lista_de_palabras[0]
+    lista_larga.append(palabra_mas_larga)
+    for palabra in lista_de_palabras:
+        if len(palabra_mas_larga) == len(palabra) and palabra_mas_larga != palabra:
+            lista_larga.append(palabra)
+        elif len(palabra_mas_larga) < len(palabra):
+            palabra_mas_larga = palabra
+            del lista_larga[:]
+            lista_larga.append(palabra_mas_larga)
+    for cantidad in lista_larga:
+        if cantidad_de_letras < len(cantidad):
+            cantidad_de_letras = len(cantidad)
+
+    mensaje = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(
+        lista_larga, cantidad_de_letras)
+    return mensaje
 
 # Multiplicacion por suma.
 # Recibe los parametros se opera y devuelve un string
@@ -265,76 +297,3 @@ def potencias(base, exponente):
         multp = 0
     mensaje = "La potencia es " + str(multp)
     return mensaje
-
-
-# Usar potencia
-def potencia(base, exponente):
-    exponente_negativo = cambio_de_resultado(abs(base), exponente)
-    multp = 1
-    if base != 0 and exponente != 0:
-        # Esto es redundante con el else, no lo cambie. El metodo que dijeron ellos
-        # parece que no va.Parece devolver bien
-        if abs(exponente) < base:
-            for i in range(0, abs(exponente)):
-                multp *= base
-        else:
-            for i in range(0, abs(exponente)):
-                multp *= base
-
-        if exponente_negativo:
-            multp = 1 / multp
-
-        if base < 0 and exponente % 2 == 0:
-            multp = abs(multp)
-    elif exponente == 0 and base != 0:
-        multp = 1
-    else:
-        if base == exponente == 0:
-            mensaje = "La base y el exponente no pueden ser 0 a la vez."
-            return mensaje
-        multp = 0
-    mensaje = "La potencia es " + str(multp)
-    return mensaje
-
-#Funcion solicita valores para operaciones de cálculo
-# Se piden parametros enteros sin excepcion para las funciones con enteros
-def solicitud(mensaje_1, mensaje_2):
-    valor_1 = ""
-    valor_2 = ""
-    while valor_1 == "" and valor_2 == "":
-        try:
-
-            valor_1 = int(input(mensaje_1))
-            try:
-                valor_2 = int(input(mensaje_2))
-            except ValueError:
-                print("Ingrese un valor valido, solo un numero")
-                valor_1 = ""
-                valor_2 = ""
-        except ValueError:
-            print("Ingrese un valor valido, solo un numero")
-            valor_1 = ""
-            valor_2 = ""
-    return valor_1, valor_2
-
-#Selecciona la opcion de continuar en un menú o regresar al anterior.
-def opcion_submenu():
-    opcion = 0
-    while opcion == 0 or opcion >= 3:
-
-        try:
-            print("1 - Continuar en este menú")
-            print("2 - Ir al menú Principal")
-
-            opcion = int(input("¿Quiere continuar operando?: "))
-            os.system("cls")
-        except ValueError:
-            print("Ingrese una opcion valida, solo un numero")
-            input("Ingrese una tecla para continuar...")
-            os.system("cls")
-    return opcion
-
-
-# Recibe 1 o 2 parametros y los imprime en ambos casos de funciones, tanto enteros como cadenas de texto
-def imprimir(parametro_1="", parametro_2=""):
-    print(parametro_1, parametro_2)
