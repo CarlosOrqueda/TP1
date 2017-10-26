@@ -1,13 +1,4 @@
-
 #################################################### String ############################################################
-# Pide una cadena y la devuelve
-def solicitar_texto():
-    texto=""
-    while texto == "" or texto.strip().replace(" ","").isalpha() == False:
-        input("Ingrese un texto valido\nPresione una tecla para continuar...")   
-        texto = input("Ingrese texto: ")
-    return texto
-
 
 # Simplifica la cadena y devuelve una lista de palabras
 def armar_cadena(texto):
@@ -39,9 +30,9 @@ def string_corto():
     print("La/s palabra/s mas corta/s es/son {}, incluyendo numeros y tiene {} caracteres.".format(
         str(lista_auxiliar), len(palabra_corta)))
     input("Presione una tecla para continuar...")
-    
 
-#Recibe una lista e itera para devolver una lista de palabras largas y la cantidad de caracteres
+
+# Recibe una lista e itera para devolver una lista de palabras largas y la cantidad de caracteres
 def iterar_palabras_largas(lista_de_palabras):
     cantidad_de_letras = 0
     lista_larga = []
@@ -55,19 +46,21 @@ def iterar_palabras_largas(lista_de_palabras):
             del lista_larga[:]
             lista_larga.append(palabra_mas_larga)
     print(len(lista_de_palabras[0]))
-    cantidad_de_letras=len(lista_de_palabras[0])
+    cantidad_de_letras = len(lista_de_palabras[0])
     return lista_larga, cantidad_de_letras
 
 
-#Solicita una cadena de texto y muestra la palabra/s mas largas y su cant. de letras.
+# Solicita una cadena de texto y muestra la palabra/s mas largas y su cant. de letras.
 def string_largo():
-    texto=solicitar_texto()
-    lista_de_palabras=armar_cadena(texto)
-    lista_larga, cantidad_de_letras=iterar_palabras_largas(lista_de_palabras)
-    palabras_largas = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(lista_larga, cantidad_de_letras)
+    texto = solicitar_texto()
+    lista_de_palabras = armar_cadena(texto)
+    lista_larga, cantidad_de_letras = iterar_palabras_largas(lista_de_palabras)
+    palabras_largas = "La/s palabra/s mas larga/s es/son {}, incluyendo numeros y la cantidad de caracteres es {}.".format(
+        lista_larga, cantidad_de_letras)
     print(palabras_largas)
     input("Presione una tecla para continuar...")
     return palabras_largas
+
 
 # Pide un texto y muestra la cant. de palabras que tiene
 def cont_palabras():
@@ -77,17 +70,15 @@ def cont_palabras():
     input("Presione una tecla para continuar...")
 
 
-
 #################################################### Calculos ##########################################################
 
-
-#Solicita valores, pasa a funcion calculo e imprime
+# Solicita valores, pasa a funcion calculo e imprime
 def multiplicacion():
-    multiplicando, multiplicador=solicitar_numeros()
+    multiplicando, multiplicador = solicitar_numeros()
     por_menos_uno = cambio_de_resultado(multiplicando, multiplicador)
     multiplicador = abs(multiplicador)
     multiplicando = abs(multiplicando)
-    resultado=multiplicacion_ciclo(multiplicando,multiplicador)
+    resultado = caculo_multiplicacion(multiplicando, multiplicador)
     if por_menos_uno:
         resultado = -resultado
     result = "La multiplicacion es " + str(resultado)
@@ -95,28 +86,31 @@ def multiplicacion():
     input("Presione una tecla para continuar...")
     return resultado
 
-#Realiza la multiplicacion por sumas sucesivas
-def multiplicacion_ciclo(multiplicando, multiplicador):
-    suma =0
-    if multiplicando<=multiplicador:
-        mayor=multiplicador
-        menor=multiplicando
+
+# Realiza la multiplicacion por sumas sucesivas
+def caculo_multiplicacion(multiplicando, multiplicador):
+    suma = 0
+    if multiplicando <= multiplicador:
+        mayor = multiplicador
+        menor = multiplicando
     else:
-        mayor=multiplicando
-        menor=multiplicador
-    for numero in range(0,menor):
-        suma+=mayor
+        mayor = multiplicando
+        menor = multiplicador
+    for numero in range(0, menor):
+        suma += mayor
     return suma
 
-#Solicita valores, pasa a funcion calculo e imprime.
+
+# Solicita valores, pasa a funcion calculo e imprime.
 def potencias():
-    base, exponente=solicitar_numeros()
-    resultado=calculo_potencias(base,exponente)
+    base, exponente = solicitar_numeros()
+    resultado = calculo_potencias(base, exponente)
     print(resultado)
     input("Presione una tecla para continuar...")
     return resultado
 
-#Relaiza calculo de potencias por multiplicacion sucesiva
+
+# Relaiza calculo de potencias por multiplicacion sucesiva
 def calculo_potencias(base, exponente):
     exponente_negativo = cambio_de_resultado(abs(base), exponente)
     multp = 1
@@ -130,8 +124,8 @@ def calculo_potencias(base, exponente):
             multp = 1 / multp
             if positivo:
                 multp = abs(multp)
-    elif exponente==0 and base!=0:
-        multp=1
+    elif exponente == 0 and base != 0:
+        multp = 1
     else:
         if base == exponente == 0:
             mensaje_error = "La base y el exponente no pueden ser 0 a la vez."
@@ -141,10 +135,8 @@ def calculo_potencias(base, exponente):
     return resultado
 
 
-
-
 # Realiza todos las divisiones por resta
-def division_aux(dividendo, divisor):
+def calculo_divison(dividendo, divisor):
     dividendo, divisor = abs(dividendo), abs(divisor)
     cociente = 0
     if dividendo < divisor:
@@ -165,12 +157,14 @@ def division():
     por_menos_uno = cambio_de_resultado(dividendo, divisor)
     if divisor == 0:
         return print("No se puede dividir por 0")
-    cociente, resto = division_aux(dividendo, divisor)
+    cociente, resto = calculo_divison(dividendo, divisor)
     if por_menos_uno:
         cociente = -cociente
     print("La division es {} y el resto {}.".format(cociente, resto))
     input("Presione una tecla para continuar...")
-################################Aux#################################
+
+
+#####################################################Aux################################################################
 def imprimir(parametro_1="", parametro_2=""):
     print(parametro_1, parametro_2)
 
@@ -179,7 +173,7 @@ def imprimir(parametro_1="", parametro_2=""):
 def solicitar_numeros():
     num1 = input("ingrese un numero: ")
     num2 = input("ingrese un numero: ")
-    
+
     while not num1.lstrip("-").isdigit() and num2.lstrip("-").isdigit():
         input("No es un valor valido \nPresione una tecla para continuar...")
         num1 = input("ingrese un numero: ")
@@ -195,3 +189,12 @@ def cambio_de_resultado(num1="", num2=""):
         return False
     elif num1 < 0 or num2 < 0:
         return True
+
+
+# Pide una cadena y la devuelve
+def solicitar_texto():
+    texto = ""
+    while texto == "" or texto.strip().replace(" ", "").isalpha() == False:
+        input("Ingrese un texto valido\nPresione una tecla para continuar...")
+        texto = input("Ingrese texto: ")
+    return texto

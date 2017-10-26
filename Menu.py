@@ -1,6 +1,6 @@
-
 import os
 import funciones_nuevas
+
 
 def menu_principal():
     print("1.Calculos numericos \n2.Tratamiento de String")
@@ -11,8 +11,9 @@ def menu_principal():
     if opcion == 1:
         menu_numerico()
     else:
-        os.system ('cls')
+        os.system('cls')
         menu_string()
+
 
 def menu_numerico():
     print("1.Multiplicacion \n2.Potencia \n3.Division \n4.Regresar")
@@ -27,10 +28,11 @@ def menu_numerico():
     elif opcion == 3:
         funciones_nuevas.division()
     else:
-        os.system ('cls')
+        os.system('cls')
         menu_principal()
-    os.system ('cls')
+    os.system('cls')
     menu_numerico()
+
 
 def menu_string():
     print("1.Palabra mas corta \n2.Palabra mas larga \n3.Cantidad de palabras \n4.Regresar")
@@ -45,10 +47,12 @@ def menu_string():
     elif opcion == 3:
         funciones_nuevas.cont_palabras()
     else:
-        os.system ('cls')
+        os.system('cls')
         menu_principal()
-        
-    os.system ('cls')
+
+    os.system('cls')
     menu_string()
-os.system ('cls')
+
+
+os.system('cls')
 menu_principal()
